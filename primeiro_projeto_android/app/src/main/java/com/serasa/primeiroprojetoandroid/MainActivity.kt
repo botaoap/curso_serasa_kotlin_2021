@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         // classeVeiculo()
         // classeValidaLogin()
         // classeValidaProfessor()
-
+        metodosEranca()
 
     }
 
@@ -22,9 +22,7 @@ class MainActivity : AppCompatActivity() {
         cachorro.movimento()
 
         val cobra = Cobra()
-        cachorro.movimento()
-
-        
+        cobra.movimento()
 
     }
 

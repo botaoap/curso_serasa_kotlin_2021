@@ -4,6 +4,6 @@ open class Animal(
     val categoria: String
 ) {
     open fun movimento(){
-        println("animal se movimentando")
+        println("Animal se movimentando")
     }
 }
