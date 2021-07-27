@@ -1,7 +1,7 @@
 package com.serasa.primeiroprojetoandroid.classes
-
-class Animal(
-    val classe: String
+// TODO: Classes di tipo OPEN sera herdada por alguem
+open class Animal(
+    val categoria: String
 ) {
 
 }

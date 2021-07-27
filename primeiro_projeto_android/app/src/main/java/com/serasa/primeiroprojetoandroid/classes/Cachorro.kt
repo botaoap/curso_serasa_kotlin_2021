@@ -1,5 +1,5 @@
 package com.serasa.primeiroprojetoandroid.classes
 
-class Cachorro(classe: String) : Animal(classe) {
-    
+class Cachorro(classe: String) : Animal("mamifero") {
+
 }
