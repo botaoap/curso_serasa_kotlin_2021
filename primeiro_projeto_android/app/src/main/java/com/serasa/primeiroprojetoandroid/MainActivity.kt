@@ -12,11 +12,16 @@ class MainActivity : AppCompatActivity() {
         // classeVeiculo()
         // classeValidaLogin()
         // classeValidaProfessor()
-        metodosEranca()
+        // metodosHeranca()
 
     }
 
-    fun metodosEranca() {
+    fun herancaPessia(){
+        val pessoaFisica: PessoaFisica()
+
+    }
+
+    fun metodosHeranca() {
 
         val cachorro = Cachorro()
         cachorro.movimento()
