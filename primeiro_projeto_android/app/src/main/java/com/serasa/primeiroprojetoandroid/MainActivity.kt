@@ -9,7 +9,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val veiculo = Veiculo("v6", "gasolina")
+        // val veiculo = Veiculo("v6", "gasolina")
+        // chamar a variavel antes, usar este metodo
+        val veiculo = Veiculo(combustivel = "gasolina", motor = "v6")
 
         veiculo.verificarMotor()
 
