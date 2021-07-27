@@ -3,6 +3,7 @@ package com.serasa.primeiroprojetoandroid
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.serasa.primeiroprojetoandroid.classes.ValidaLogin
+import com.serasa.primeiroprojetoandroid.classes.ValidaLoginProfessor
 import com.serasa.primeiroprojetoandroid.classes.Veiculo
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +12,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // classeVeiculo()
-        classeValidaLogin()
+        // classeValidaLogin()
+        classeValidaProfessor()
+
+    }
+
+    fun classeValidaProfessor() {
+        val form = ValidaLoginProfessor(null,null,null)
+        form.name = "Gabriel"
+        form.email = "gabriel@gmail.com"
+
+        if (form.name != null) {
+            println(form.name!!.length)
+        }
+
+        form.email?.apply {
+            println(this)
+        }
+
 
     }
 
@@ -23,7 +41,9 @@ class MainActivity : AppCompatActivity() {
             validaEmail().let {
                 println(it)
             }
-
+            getInformation().let {
+                println(it)
+            }
         }
 
         var validacaoTrue = ValidaLogin(nome = "Jorge", email = "jorge@gmail.com").apply {
@@ -33,6 +53,9 @@ class MainActivity : AppCompatActivity() {
             validaEmail().let {
                 println(it)
             }
+            getInformation().let {
+                println(it)
+            }
         }
 
         var validacaoEmailFalse = ValidaLogin(nome = "Jorge").apply {
@@ -40,6 +63,9 @@ class MainActivity : AppCompatActivity() {
                 println(it)
             }
             validaEmail().let {
+                println(it)
+            }
+            getInformation().let {
                 println(it)
             }
         }
