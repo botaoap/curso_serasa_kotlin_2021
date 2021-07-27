@@ -9,6 +9,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val veiculo = Veiculo("v6")
+        val veiculo = Veiculo("v6", "gasolina")
+
+        veiculo.verificarMotor()
+
+        println(veiculo.combustivel)
+
+        veiculo.combustivel = "diesel"
+
+        println(veiculo.combustivel)
+
+
     }
 }

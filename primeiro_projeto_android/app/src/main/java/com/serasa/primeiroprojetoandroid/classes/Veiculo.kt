@@ -1,10 +1,12 @@
 package com.serasa.primeiroprojetoandroid.classes
 
-class Veiculo
-    (
-    val motor: String
-    ){
-        fun verificarMotor() {
-            print(motor)
-        }
+class Veiculo(
+    private val motor: String,
+    var combustivel: String,
+){
+
+    fun verificarMotor() {
+        println(motor)
+    }
+
 }
