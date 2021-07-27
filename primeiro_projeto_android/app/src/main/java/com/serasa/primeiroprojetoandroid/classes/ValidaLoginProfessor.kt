@@ -1,5 +1,6 @@
 package com.serasa.primeiroprojetoandroid.classes
 
+// TODO: Variavel com '?' significa que ele podeser Nulo(Null)
 class ValidaLoginProfessor (var name: String?, var email: String?, veiculo: Veiculo?) {
 
     constructor() : this(null,null, null)
