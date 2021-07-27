@@ -16,4 +16,11 @@ class ValidaLogin(
     fun validaNome(): Boolean{
         return nome.isNotBlank()
     }
+
+    fun getInformation(): String {
+        return """
+            |Nome: $nome 
+            |Email $email
+            |"""
+    }
 }
