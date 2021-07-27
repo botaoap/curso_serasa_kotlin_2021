@@ -2,9 +2,7 @@ package com.serasa.primeiroprojetoandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.serasa.primeiroprojetoandroid.classes.ValidaLogin
-import com.serasa.primeiroprojetoandroid.classes.ValidaLoginProfessor
-import com.serasa.primeiroprojetoandroid.classes.Veiculo
+import com.serasa.primeiroprojetoandroid.classes.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +11,20 @@ class MainActivity : AppCompatActivity() {
 
         // classeVeiculo()
         // classeValidaLogin()
-        classeValidaProfessor()
+        // classeValidaProfessor()
+
+
+    }
+
+    fun metodosEranca() {
+
+        val cachorro = Cachorro()
+        cachorro.movimento()
+
+        val cobra = Cobra()
+        cachorro.movimento()
+
+        
 
     }
 
