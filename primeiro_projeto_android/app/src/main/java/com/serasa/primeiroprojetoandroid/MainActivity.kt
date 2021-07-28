@@ -51,8 +51,19 @@ class MainActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.editTextCelular).apply {
             form.celular = text.toString()
         }
-
-        Snackbar.make(view, "Nome: ${form.nome}, Email: ${form.email}, Celular: ${form.celular}",Snackbar.LENGTH_LONG).show()
+        if (form.checkFields()) {
+            Snackbar.make(
+                view,
+                "Nome: ${form.nome}, Email: ${form.email}, Celular: ${form.celular}",
+                Snackbar.LENGTH_LONG
+            ).show()
+        } else {
+            Snackbar.make(
+                view,
+                getString(R.string.message_error_form),
+                Snackbar.LENGTH_LONG
+            ).show()
+        }
     }
 
     fun herancaPessoa(){
