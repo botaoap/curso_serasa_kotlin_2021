@@ -7,7 +7,7 @@ import com.serasa.primeiroprojetoandroid.classes.*
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_form_treino)
 
         // classeVeiculo()
         // classeValidaLogin()
