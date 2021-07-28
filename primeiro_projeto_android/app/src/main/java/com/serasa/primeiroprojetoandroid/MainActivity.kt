@@ -1,5 +1,6 @@
 package com.serasa.primeiroprojetoandroid
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,7 +26,6 @@ class MainActivity : AppCompatActivity() {
 
     fun formularioAntigo(){
         // TODO: chamando elemento de forma antiga
-
         findViewById<Button>(R.id.buttonEnviar).apply {
 
             setOnClickListener {
@@ -54,11 +54,18 @@ class MainActivity : AppCompatActivity() {
             form.celular = text.toString()
         }
         if (form.checkFields()) {
+            // TODO: para chamar classe precisa de `::`
+            val intent = Intent(this, ApplicationActivity::class.java)
+
+            // TODO: chama uma nova activity (forma mais basica de navegar por telas)
+            startActivity(intent)
+
+            /*
             Snackbar.make(
                 view,
                 "Nome: ${form.nome}, Email: ${form.email}, Celular: ${form.celular}",
                 Snackbar.LENGTH_LONG
-            ).show()
+            ).show()*/
         } else {
             Snackbar.make(
                 view,
