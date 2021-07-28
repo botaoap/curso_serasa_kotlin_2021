@@ -35,9 +35,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // TODO: funcao para validar os campos do formulario chamando uma classe Formulario
-    // TODO: Precisa criar um parametro do tipo View para usar o Snackbar
+
     private fun checkFields(view: View) {
+        // TODO: funcao para validar os campos do formulario chamando uma classe Formulario
+        // TODO: Precisa criar um parametro do tipo View para usar o Snackbar
+
         val form = Formulario()
 
         findViewById<EditText>(R.id.editTextNome).apply {
