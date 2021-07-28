@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Primeiro Projeto Android</string>
+    <string translatable="false" name="app_name">Primeiro Projeto Android</string>
     <string name="name_label">Nome</string>
     <string name="e_mail_label">E-mail</string>
     <string name="celular_label">Celular</string>
+    <string name="enviar_text">Enviar</string>
 </resources>
