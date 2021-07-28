@@ -13,16 +13,20 @@ class MainActivity : AppCompatActivity() {
         // classeValidaLogin()
         // classeValidaProfessor()
         // metodosHeranca()
-        herancaPessia()
+        herancaPessoa()
 
     }
 
-    fun herancaPessia(){
+    fun herancaPessoa(){
         val pessoaFisica = PessoaFisica()
         pessoaFisica.identificar()
         pessoaFisica.tipoDeRegistro()
         pessoaFisica.emiteNotaFiscal()
 
+        val pessoaJuridica = PessoaJuridica()
+        pessoaJuridica.identificar()
+        pessoaJuridica.tipoDeRegistro()
+        pessoaJuridica.emiteNotaFiscal()
     }
 
     fun metodosHeranca() {
