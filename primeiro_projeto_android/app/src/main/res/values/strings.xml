@@ -1,5 +1,5 @@
 <resources>
-    <string translatable="false" name="app_name">Primeiro Projeto Android</string>
+    <string name="app_name" translatable="false">Primeiro Projeto Android</string>
     <string name="name_label">Nome</string>
     <string name="e_mail_label">E-mail</string>
     <string name="celular_label">Celular</string>
