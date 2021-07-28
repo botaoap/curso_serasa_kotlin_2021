@@ -13,5 +13,5 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * [Baixar AndroidStudio](https://developer.android.com/studio)
 
 ## Dúvidas JavaScript
-- Anotações Interessantes[AQUI](anotacoes.md)
-- Links Interessantes[AQUI](links.md)
+- Anotações Interessantes: [AQUI](anotacoes.md)
+- Links Interessantes: [AQUI](links.md)
