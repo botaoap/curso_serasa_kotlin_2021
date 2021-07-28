@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         // classeValidaLogin()
         // classeValidaProfessor()
         // metodosHeranca()
-        herancaPessoa()
+        // herancaPessoa()
 
     }
 
