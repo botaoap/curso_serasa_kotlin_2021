@@ -1,19 +1,19 @@
 package com.serasa.primeiroprojetoandroid.classes
 
-class PessoaFisica(): Pessoa("Pessoa Fisica",
+class PessoaFisica: Pessoa("Pessoa Fisica",
     "CPF", false) {
-    override fun identicar() {
-        super.identicar()
-        print("Pessoa Fisica")
+    override fun identificar() {
+        super.identificar()
+        println("Pessoa Fisica")
     }
 
     override fun tipoDeRegistro() {
         super.tipoDeRegistro()
-        print("CPF")
+        println("CPF")
     }
 
     override fun emiteNotaFiscal() {
         super.emiteNotaFiscal()
-        print("False")
+        println("False")
     }
 }

@@ -6,15 +6,15 @@ open class Pessoa(
     val emitirNotaFiscal: Boolean
 ) {
 
-    open fun identicar(){
-        print("Tipo da pessoa: ")
+    open fun identificar(){
+        println("Tipo da pessoa: ")
     }
     open fun tipoDeRegistro(){
-        print("Registro principal: ")
+        println("Registro principal: ")
     }
 
     open fun emiteNotaFiscal(){
-        print("Pode emitir nota fiscal: ")
+        println("Pode emitir nota fiscal: ")
     }
 
 }
