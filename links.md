@@ -1,5 +1,5 @@
 # Links para Kotlin
-- [Developer Android](https://developer.android.com/)
-- [Android Arsenal](https://android-arsenal.com/)
-- [Material Design](https://material.io/)
-- [Treinar Kotlin](https://play.kotlinlang.org/koans/overview)
+- Developer Android: [AQUI](https://developer.android.com/)
+- Android Arsenal: [AQUI](https://android-arsenal.com/)
+- Material Design: [AQUI](https://material.io/)
+- Treinar Kotlin: [AQUI](https://play.kotlinlang.org/koans/overview)
