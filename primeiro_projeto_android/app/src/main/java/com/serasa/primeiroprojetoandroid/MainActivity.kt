@@ -2,9 +2,11 @@ package com.serasa.primeiroprojetoandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import com.google.android.material.snackbar.Snackbar
+import com.serasa.primeiroprojetoandroid.classeFormulario.Formulario
 import com.serasa.primeiroprojetoandroid.classes.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,22 +27,32 @@ class MainActivity : AppCompatActivity() {
         // TODO: chamando elemento de forma antiga
 
         findViewById<Button>(R.id.buttonEnviar).apply {
+
             setOnClickListener {
-                Snackbar.make(it, "Click Ok", Snackbar.LENGTH_LONG).show()
+                checkFields(it)
+            //  Snackbar.make(it, "Click Ok", Snackbar.LENGTH_LONG).show()
             }
         }
+    }
+
+    // TODO: funcao para validar os campos do formulario chamando uma classe Formulario
+    // TODO: Precisa criar um parametro do tipo View para usar o Snackbar
+    private fun checkFields(view: View) {
+        val form = Formulario()
 
         findViewById<EditText>(R.id.editTextNome).apply {
-
+            form.nome = text.toString()
         }
 
         findViewById<EditText>(R.id.editTextEmail).apply {
-
+            form.email = text.toString()
         }
 
         findViewById<EditText>(R.id.editTextCelular).apply {
-
+            form.celular = text.toString()
         }
+
+        Snackbar.make(view, "Nome: ${form.nome}, Email: ${form.email}, Celular: ${form.celular}",Snackbar.LENGTH_LONG).show()
     }
 
     fun herancaPessoa(){
