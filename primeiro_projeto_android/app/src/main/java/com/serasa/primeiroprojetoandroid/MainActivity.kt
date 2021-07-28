@@ -2,6 +2,9 @@ package com.serasa.primeiroprojetoandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import com.google.android.material.snackbar.Snackbar
 import com.serasa.primeiroprojetoandroid.classes.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +17,30 @@ class MainActivity : AppCompatActivity() {
         // classeValidaProfessor()
         // metodosHeranca()
         // herancaPessoa()
+        formularioAntigo()
 
+    }
+
+    fun formularioAntigo(){
+        // TODO: chamando elemento de forma antiga
+
+        findViewById<Button>(R.id.buttonEnviar).apply {
+            setOnClickListener {
+                Snackbar.make(it, "Click Ok", Snackbar.LENGTH_LONG).show()
+            }
+        }
+
+        findViewById<EditText>(R.id.editTextNome).apply {
+
+        }
+
+        findViewById<EditText>(R.id.editTextEmail).apply {
+
+        }
+
+        findViewById<EditText>(R.id.editTextCelular).apply {
+
+        }
     }
 
     fun herancaPessoa(){
