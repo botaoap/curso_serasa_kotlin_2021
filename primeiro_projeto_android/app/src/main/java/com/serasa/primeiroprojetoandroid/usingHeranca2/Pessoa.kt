@@ -1,4 +1,4 @@
-package com.serasa.primeiroprojetoandroid.classes
+package com.serasa.primeiroprojetoandroid.usingHeranca2
 // TODO: Classe mae de pessoa para pessoa fisica e juridica
 open class Pessoa(
     val identicarTipoPessoa: String,

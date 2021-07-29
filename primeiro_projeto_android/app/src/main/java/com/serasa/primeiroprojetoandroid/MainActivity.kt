@@ -9,6 +9,10 @@ import android.widget.EditText
 import com.google.android.material.snackbar.Snackbar
 import com.serasa.primeiroprojetoandroid.classeFormulario.Formulario
 import com.serasa.primeiroprojetoandroid.classes.*
+import com.serasa.primeiroprojetoandroid.usingHeranca.Cachorro
+import com.serasa.primeiroprojetoandroid.usingHeranca.Cobra
+import com.serasa.primeiroprojetoandroid.usingHeranca2.PessoaFisica
+import com.serasa.primeiroprojetoandroid.usingHeranca2.PessoaJuridica
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

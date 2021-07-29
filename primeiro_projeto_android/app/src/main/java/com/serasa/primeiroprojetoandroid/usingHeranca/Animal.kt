@@ -1,4 +1,4 @@
-package com.serasa.primeiroprojetoandroid.classes
+package com.serasa.primeiroprojetoandroid.usingHeranca
 // TODO: Classes di tipo OPEN sera herdada por alguem
 open class Animal(
     val categoria: String

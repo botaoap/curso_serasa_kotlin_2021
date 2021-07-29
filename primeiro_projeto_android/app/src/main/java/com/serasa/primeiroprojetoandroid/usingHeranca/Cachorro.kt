@@ -1,4 +1,4 @@
-package com.serasa.primeiroprojetoandroid.classes
+package com.serasa.primeiroprojetoandroid.usingHeranca
 
 class Cachorro : Animal("mamifero") {
 

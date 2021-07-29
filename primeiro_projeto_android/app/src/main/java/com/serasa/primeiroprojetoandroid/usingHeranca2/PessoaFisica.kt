@@ -1,4 +1,4 @@
-package com.serasa.primeiroprojetoandroid.classes
+package com.serasa.primeiroprojetoandroid.usingHeranca2
 
 class PessoaFisica: Pessoa("Pessoa Fisica",
     "CPF", false) {
