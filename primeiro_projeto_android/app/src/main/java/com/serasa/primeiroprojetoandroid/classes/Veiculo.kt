@@ -1,9 +1,11 @@
 package com.serasa.primeiroprojetoandroid.classes
 
+import com.serasa.primeiroprojetoandroid.usingInterface.Som
+
 class Veiculo(
     var motor: String,
     var combustivel: String,
-){
+): Som {
 
     constructor() : this("","")
 
@@ -29,6 +31,10 @@ class Veiculo(
 
     fun verificarCombustivel() {
         println(combustivel)
+    }
+
+    override fun ruido(): String {
+        return "Ligando motor ...."
     }
 
 }
