@@ -14,7 +14,7 @@ import com.serasa.primeiroprojetoandroid.usingHeranca.Cobra
 import com.serasa.primeiroprojetoandroid.usingHeranca2.PessoaFisica
 import com.serasa.primeiroprojetoandroid.usingHeranca2.PessoaJuridica
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_treino)
@@ -24,8 +24,38 @@ class MainActivity : AppCompatActivity() {
         // classeValidaProfessor()
         // metodosHeranca()
         // herancaPessoa()
-        formularioAntigo()
+        //formularioAntigo()
+        chamandoButton()
 
+    }
+
+    /**
+     * Funcao de click - Disparada quando usuario clica no componente
+     * em que add o evento do onClickListener
+     */
+
+    fun chamandoButton() {
+
+        val button = findViewById<Button>(R.id.buttonEnviar)
+        button.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        v?.let {
+            when(it.id) {
+//                is Button -> {
+//                   val button = it as Button
+//                }
+                R.id.buttonEnviar -> {
+                    Snackbar.make(
+                        it,
+                        "Teste interessante",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                }
+                else -> println("")
+            }
+        }
     }
 
     fun formularioAntigo(){
