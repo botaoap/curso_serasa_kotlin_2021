@@ -21,3 +21,6 @@
 - Lambda
 - Heranca e Interface
 - Library Retrofit
+- coRoutines
+- Threading
+- Como fazer um Scanner no Android
