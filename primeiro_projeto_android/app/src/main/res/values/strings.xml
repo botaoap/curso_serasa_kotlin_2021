@@ -5,4 +5,8 @@
     <string name="celular_label">Celular</string>
     <string name="enviar_text">Enviar</string>
     <string name="message_error_form">Por favor verifique todos os campos</string>
+    <string name="message_teste1">Testando o Botao: Teste 1</string>
+    <string name="message_teste2">Testando o Botao: Teste 2</string>
+    <string name="message_testeTela">Clicando na Tela</string>
+
 </resources>
