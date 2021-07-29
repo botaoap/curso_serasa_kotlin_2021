@@ -2,5 +2,7 @@ package com.serasa.primeiroprojetoandroid.usingInterface
 
 interface Movimentacao {
 
-    fun movimentar(): String
+    fun frente(): String
+    fun lado(): String
+    fun random(): String
 }
