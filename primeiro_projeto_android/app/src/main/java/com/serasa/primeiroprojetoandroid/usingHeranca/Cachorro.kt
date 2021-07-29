@@ -2,7 +2,7 @@ package com.serasa.primeiroprojetoandroid.usingHeranca
 
 import com.serasa.primeiroprojetoandroid.usingInterface.Som
 
-class Cachorro : Animal("mamifero"), Som {
+class Cachorro : Animal("mamifero"){
 
     override fun movimento() {
         super.movimento()
@@ -12,4 +12,18 @@ class Cachorro : Animal("mamifero"), Som {
     override fun ruido() : String{
         return "Latido......."
     }
+
+    override fun frente(): String {
+        return "Caminha com 4 patas para frente ......"
+    }
+
+    override fun lado(): String {
+        return "Caminha com 4 patas de lado......"
+    }
+
+    override fun random(): String {
+        return "Caminha com 4 patas para qualquer lugar ....."
+    }
+
+
 }
