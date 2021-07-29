@@ -17,4 +17,8 @@ fun main() {
     autoFalante.reproduzirSom(cachorro)
     autoFalante.reproduzirSom(cobra)
     autoFalante.reproduzirSom(veiculo)
+
+    autoFalante.reproduzirMovimento(cachorro)
+    autoFalante.reproduzirMovimento(cobra)
+    autoFalante.reproduzirMovimento(veiculo)
 }

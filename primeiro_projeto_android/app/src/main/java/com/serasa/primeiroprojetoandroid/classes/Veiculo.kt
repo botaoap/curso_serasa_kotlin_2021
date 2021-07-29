@@ -1,11 +1,12 @@
 package com.serasa.primeiroprojetoandroid.classes
 
+import com.serasa.primeiroprojetoandroid.usingInterface.Movimentacao
 import com.serasa.primeiroprojetoandroid.usingInterface.Som
 
 class Veiculo(
     var motor: String,
     var combustivel: String,
-): Som {
+): Som, Movimentacao {
 
     constructor() : this("","")
 
@@ -35,6 +36,18 @@ class Veiculo(
 
     override fun ruido(): String {
         return "Ligando motor ...."
+    }
+
+    override fun frente(): String {
+        return "Engata a marcha e vai para frente ....."
+    }
+
+    override fun lado(): String {
+        return "Vira o volante e vai para o lado ....."
+    }
+
+    override fun random(): String {
+        return "Vai para qualquer lugar ......"
     }
 
 }
