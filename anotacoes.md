@@ -26,3 +26,4 @@
 - Como fazer um Scanner no Android
 - JatpackCompose
 - Ifternario
+- ler JSON, DataClass Kotlin
