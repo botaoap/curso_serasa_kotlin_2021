@@ -1,7 +1,7 @@
 # Notes
 - Professor: Arthur Stapassoli
 
-### Pesquisas
+### Pesquisas para Kotlin
 - Funções de escopo Kotlin
 - Firebase, DB Nao relacional *Warning*
 - Snackbar
@@ -18,4 +18,6 @@
 - Learch for librarys
 - Realme DB
 - Room DB
-- 
+- Lambda
+- Heranca e Interface
+- Library Retrofit
