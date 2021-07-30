@@ -30,3 +30,4 @@
 - Singleton
 - UUID, gera um ID poaro User
 - Lateinit
+- LayoutInflater
