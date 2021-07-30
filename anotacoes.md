@@ -27,3 +27,6 @@
 - JatpackCompose
 - Ifternario
 - ler JSON, DataClass Kotlin
+- Singleton
+- UUID, gera um ID poaro User
+- Lateinit
