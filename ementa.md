@@ -1,13 +1,13 @@
 # Ementa Curso Koltin 400h
 ## INTRODUÇÃO A KOTLIN
-### Orientação a Objetos
-    - o Objetos, atributos/propriedades, métodos e classes
-    - o Eventos e Mensagens
-    - o Abstração, encapsulamento e modularização
-    - o Polimorfismo, herança, generalização e especialização 
-    - o Associação, agregação e multiplicidade
-    - o Modelagem orientado a objetos
-    - o Design Patterns
+- Orientação a Objetos
+   - o Objetos, atributos/propriedades, métodos e classes
+   - o Eventos e Mensagens
+   - o Abstração, encapsulamento e modularização
+   - o Polimorfismo, herança, generalização e especialização 
+   - o Associação, agregação e multiplicidade
+   - o Modelagem orientado a objetos
+   - o Design Patterns
 - Tipos e operadores 
 - Nullables
 - Controle de fluxo Ranges
