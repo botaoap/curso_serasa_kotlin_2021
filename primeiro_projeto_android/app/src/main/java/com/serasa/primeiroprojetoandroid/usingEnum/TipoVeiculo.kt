@@ -1,4 +1,4 @@
-package com.serasa.primeiroprojetoandroid.enum
+package com.serasa.primeiroprojetoandroid.usingEnum
 
 enum class TipoVeiculo(val id: Int, val key: String) {
     CARRO(1, "key_carro"),

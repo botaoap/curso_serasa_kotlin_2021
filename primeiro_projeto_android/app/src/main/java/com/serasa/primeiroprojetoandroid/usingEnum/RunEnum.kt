@@ -1,4 +1,4 @@
-package com.serasa.primeiroprojetoandroid.enum
+package com.serasa.primeiroprojetoandroid.usingEnum
 
 fun main() {
 
