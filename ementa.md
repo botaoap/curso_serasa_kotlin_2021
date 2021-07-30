@@ -1,8 +1,142 @@
-# Ementa Curso Koltin
-## Aula 1
-- Introducao SDK
-- Apresentando IDE Android Studio e Disposicao dos elementos mais utilizados
-- Criando Emulador
-- Estrutura de um porojeto Android
-- SDK maneger
-- AVD maneger
+# Ementa Curso Koltin 400h
+## INTRODUÇÃO A KOTLIN
+### Orientação a Objetos
+    - o Objetos, atributos/propriedades, métodos e classes
+    - o Eventos e Mensagens
+    - o Abstração, encapsulamento e modularização
+    - o Polimorfismo, herança, generalização e especialização 
+    - o Associação, agregação e multiplicidade
+    - o Modelagem orientado a objetos
+    - o Design Patterns
+- Tipos e operadores 
+- Nullables
+- Controle de fluxo Ranges
+- Collections
+- Laços de repetição
+- Funções
+- Valor padrão e funções compactas
+- Closures
+- Funções de Escopo - let, run, with, apply, also Lambdas
+- Higher-order functions
+- Classes e objetos
+- Companion object
+- Lazy e lateinit
+- Filters
+- Extensions
+- Generics
+- Annotations
+- Coroutines
+## Git e GitHub
+- Introdução
+- Repositórios
+- Commits
+- Repositórios externos 
+- Comunicação HTTPS e SSH
+- Fork e Clone
+- Versionamento
+- Fluxo de trabalho
+- Ignorando e removendo arquivos 
+- Trabalhando com branches Merge
+- Rebase
+- Tags
+- Resolvendo conflitos Desfazendo alterações
+## CRIANDO O APLICATIVO – COMPONENTES DE INTERFACE DO USUÁRIO
+- Introdução a Android
+- Ambiente de desenvolvimento Estrutura do aplicativo
+- Ciclo de vida Activity e fragment Resources
+- Layouts
+- Layout Editor
+- Linear layout
+- Constraints
+- Estilos e temas
+- Material Design, dimens e colors Acessibilidade
+- Navigation
+- Fragment
+- Caminhos
+- Activity externa
+- RecyclerView
+- GridLayout com RecyclerView 
+- Interagindo com itens do RecyclerView 
+- Headers em RecyclerView
+## CLIENTE REST API
+- HTTP, DNS, SSL, RESTful
+- Retrofit
+- Carregandos dados da internet
+- Carregando imagens da internet
+- Filtragem e detail view com dados da internet 
+- Criar database no Room
+- Coroutines e Room
+## ARQUITETURA DE APLICATIVOS
+- MVC
+- MVVM
+- Data Binding
+- ViewModel e ViewModelProvider 
+- LiveData e LiveData observers 
+- DataBinding com ViewModel e LiveData 
+- Transformações LiveData
+- DiffUtil e data binding com RecyclerView 
+- Repository
+- WorkManager
+## COMPARTILHAMENTO DE DADOS
+- Intents
+- Content Providers 
+-  ShareIntents
+## QUALIDADE
+- Clean Code
+    - o Convecções de código
+    - o Estrutura de diretórios
+    - o Layout de classe e interfaces
+    - o Regras de nomenclatura (Funções, classes, métodos e propriedades)
+- Testes Unitários
+- TDD
+    - o Introdução aos testes automatizados
+    - o Teste funcionais e não funcionais
+    - o Boas práticas
+    - o Refatorando e reutilizando código nos testes
+    - o Analisando e removendo testes desnecessários 
+    - o Esperando exceptions nos testes
+    - o Refatoração e alternativas para testar exceptions
+    - o Modelo de entrega continua 
+- Mock
+- Teste de interface
+- Teste instrumentalizado e e2e 
+- Teste de desempenho 
+- Injeção de dependências 
+- Background tasks
+## SQLITE E ROOM
+- Trabalhando com Banco de dados SQLite 
+- Preparando o SQLite
+- Comandos de SQLite
+- Criando um modelo de objetos
+- Entidades
+- DAOs
+- Database Class
+- CRUD
+- Debug no Android Studio 
+- Repository, Coroutines e Room
+## REALM DB
+- Instalar Realm no Android Async API
+- Realms
+- Live Queries
+- Query Engine
+- Transações
+- Relationships
+- Object Models & Schemas 
+- Schema Versions & Migrations 
+- Application Services
+- Data Types
+- Field Types 
+- Counters 
+- Collections
+- Embedded Objects
+## NOTIFICAÇÕES
+- NotificationManager 
+- NotificationChannel 
+- In-app Notification Badges
+- Firebase Cloud Messaging
+## COMPILAR E PUBLICAR
+- App flavors
+- Configuração do Gradle Assinatura
+- Play Asset Delivery or
+- Play Feature Delivery
+- Processo de publicação App Store
