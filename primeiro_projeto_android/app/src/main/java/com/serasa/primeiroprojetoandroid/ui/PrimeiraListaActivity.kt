@@ -2,12 +2,14 @@ package com.serasa.primeiroprojetoandroid.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.serasa.primeiroprojetoandroid.R
+import com.serasa.primeiroprojetoandroid.usingAdapter.AdapterListaNomes
 
 class PrimeiraListaActivity : AppCompatActivity() {
 
-    lateinit var recycledViewNomes : RecyclerView
+    lateinit var recycleViewNomes : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,13 +20,13 @@ class PrimeiraListaActivity : AppCompatActivity() {
     }
 
     fun chamandoRecycleView() {
-        recycledViewNomes = findViewById(R.id.recycleViewLista)
 
+        val arrayNomesTeste = arrayListOf("Arthur", "Gabriel", "Sergio", "Heloise")
+        recycleViewNomes = findViewById(R.id.recycleViewLista)
         // TODO: Usando o adapter, é a peça fundamental para funcionar
-
-        // recycledViewNomes
-
-
+        recycleViewNomes.adapter = AdapterListaNomes(arrayNomesTeste)
+        // TODO: Quem sera o motor e o layoutManager do adapter
+        recycleViewNomes.layoutManager = LinearLayoutManager(this)
     }
 
 }

@@ -1,25 +1,36 @@
 package com.serasa.primeiroprojetoandroid.usingAdapter
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.serasa.primeiroprojetoandroid.R
+import org.w3c.dom.Text
 
-class AdapterListaNomes : RecyclerView.Adapter<ViewHolderNomes>() {
+class AdapterListaNomes(val arrayDeNomes: ArrayList<String>) : RecyclerView.Adapter<ViewHolderNomes>() {
 
+    // TODO: Rsponsavel por definir o layout
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderNomes {
-        TODO("Not yet implemented")
+        // TODO: LayoutInflater é um Singleton
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_lista_nome, parent,
+            false)
+        return ViewHolderNomes(view)
     }
 
+    // TODO: Responsavel por preencher os campos
     override fun onBindViewHolder(holder: ViewHolderNomes, position: Int) {
-        TODO("Not yet implemented")
+        holder.textViewNome.text = arrayDeNomes[position]
     }
 
+    // TODO: Responsavel por contar quantos itens ira retornar
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return arrayDeNomes.size
     }
 
 }
 
 class ViewHolderNomes(itemView : View) : RecyclerView.ViewHolder(itemView){
 
+    val textViewNome: TextView = itemView.findViewById(R.id.nameTextView)
 }
