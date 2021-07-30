@@ -2,7 +2,7 @@ package com.serasa.primeiroprojetoandroid.usingHeranca
 
 import com.serasa.primeiroprojetoandroid.usingInterface.Som
 
-class Cobra : Animal("reptil") {
+class Cobra(val nome: String) : Animal("reptil") {
     override fun movimento() {
         super.movimento()
         println("Cobra rasteja")
