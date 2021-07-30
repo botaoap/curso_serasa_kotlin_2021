@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrimeiroProjetoAndroid">
         <activity
-            android:name=".TesteInterfaceActivity"
+            android:name=".ui.TesteInterfaceActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,8 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ApplicationActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.ApplicationActivity" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

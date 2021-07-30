@@ -1,12 +1,12 @@
-package com.serasa.primeiroprojetoandroid
+package com.serasa.primeiroprojetoandroid.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import androidx.constraintlayout.solver.state.State
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.snackbar.Snackbar
+import com.serasa.primeiroprojetoandroid.R
 
 class TesteInterfaceActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {

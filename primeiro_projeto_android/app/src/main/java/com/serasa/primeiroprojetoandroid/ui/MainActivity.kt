@@ -1,4 +1,4 @@
-package com.serasa.primeiroprojetoandroid
+package com.serasa.primeiroprojetoandroid.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import com.google.android.material.snackbar.Snackbar
+import com.serasa.primeiroprojetoandroid.R
 import com.serasa.primeiroprojetoandroid.classeFormulario.Formulario
 import com.serasa.primeiroprojetoandroid.classes.*
 import com.serasa.primeiroprojetoandroid.usingHeranca.Cachorro
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         chamandoButton()
 
     }
+
 
     /**
      * Funcao de click - Disparada quando usuario clica no componente
