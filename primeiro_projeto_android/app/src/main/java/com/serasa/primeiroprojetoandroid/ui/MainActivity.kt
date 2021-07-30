@@ -125,10 +125,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     fun metodosHeranca() {
 
-        val cachorro = Cachorro()
+        val cachorro = Cachorro("bud")
         cachorro.movimento()
 
-        val cobra = Cobra()
+        val cobra = Cobra("snake")
         cobra.movimento()
 
     }
