@@ -4,7 +4,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/botaoap/Alngular_Proway_Botao_2021)
 
 ### Sobre o Curso
-- Matriz do curso: [AQUI](ementa.md)
+- Ementa do curso: [AQUI](ementa.md)
 
 ## 💻 Pré-requisitos
 
