@@ -62,7 +62,7 @@
         android:layout_marginStart="@dimen/magin_default"
         android:layout_marginBottom="@dimen/magin_default"
         android:layout_marginTop="@dimen/magin_default"
-        android:text="Editar"
+        android:text="Info"
         android:textSize="10sp"
         android:gravity="center"
         app:layout_constraintStart_toEndOf="@id/imageAvatarTask"

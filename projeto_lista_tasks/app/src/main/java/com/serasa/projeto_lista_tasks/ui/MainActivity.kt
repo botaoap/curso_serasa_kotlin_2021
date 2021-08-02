@@ -1,5 +1,6 @@
 package com.serasa.projeto_lista_tasks.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         adapter = AdapterTaskRecycleView(listOfTask) {
-            onClick(it)
+            onClickItemTask(it)
         }
 
         findViewById<Button>(R.id.buttonAddNewTask).setOnClickListener {
@@ -52,8 +53,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun onClick(task: Task){
-        Snackbar.make(tasksRecycleView, task.nomeTask, Snackbar.LENGTH_LONG).show()
+    fun onClickItemTask(task: Task){
+//        Snackbar.make(tasksRecycleView, task.nomeTask, Snackbar.LENGTH_LONG).show()
+        // TODO: navegar para outra tela
+        val intentParaDeatilTaskDoTask = Intent(this, DetailTaskActivity::class.java)
+        intentParaDeatilTaskDoTask.putExtra("parametro-task", task)
+        startActivity(intentParaDeatilTaskDoTask)
+
     }
 
     fun onClickAddNewTask() {
