@@ -3,16 +3,16 @@ package com.serasa.projeto_lista_tasks.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.serasa.projeto_lista_tasks.R
 import com.serasa.projeto_lista_tasks.model.Task
 
 class AdapterTaskRecycleView(
-    val listOfTask: List<Task>,
+    val listOfTask: MutableList<Task>,
     val onClick: (Task) -> Unit
 ): RecyclerView.Adapter<ItemTaskViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemTaskViewHolder {
@@ -23,14 +23,22 @@ class AdapterTaskRecycleView(
     override fun onBindViewHolder(holder: ItemTaskViewHolder, position: Int) {
         listOfTask[position].apply {
             holder.bind(this)
-            holder.itemView.setOnClickListener {
+            holder.itemView.findViewById<Button>(R.id.buttonEditar).setOnClickListener {
                 onClick(this)
+            }
+            holder.itemView.findViewById<Button>(R.id.buttonExcluir).setOnClickListener {
+                removerTask(this)
             }
         }
     }
 
     override fun getItemCount(): Int {
         return listOfTask.size
+    }
+
+    fun removerTask(task: Task) {
+        listOfTask.remove(task)
+        notifyDataSetChanged()
     }
 
 }
