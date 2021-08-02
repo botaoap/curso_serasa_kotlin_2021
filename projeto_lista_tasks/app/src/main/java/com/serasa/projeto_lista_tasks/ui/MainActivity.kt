@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.serasa.projeto_lista_tasks.R
 import com.serasa.projeto_lista_tasks.adapter.AdapterTaskRecycleView
+import com.serasa.projeto_lista_tasks.adapter.ClickableTask
 import com.serasa.projeto_lista_tasks.model.Task
 import com.serasa.projeto_lista_tasks.model.TaskLogoUrl
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ClickableTask {
 
     private lateinit var tasksRecycleView: RecyclerView
     private lateinit var adapter: AdapterTaskRecycleView
@@ -49,20 +50,35 @@ class MainActivity : AppCompatActivity() {
         )
         tasksRecycleView.adapter = adapter
 
-
-
     }
 
     fun onClickItemTask(task: Task){
 //        Snackbar.make(tasksRecycleView, task.nomeTask, Snackbar.LENGTH_LONG).show()
-        // TODO: navegar para outra tela
-        val intentParaDeatilTaskDoTask = Intent(this, DetailTaskActivity::class.java)
-        intentParaDeatilTaskDoTask.putExtra("parametro-task", task)
-        startActivity(intentParaDeatilTaskDoTask)
+//        // TODO: navegar para outra tela
+//        val intentParaDeatilTaskDoTask = Intent(this, DetailTaskActivity::class.java)
+//        intentParaDeatilTaskDoTask.putExtra("parametro-task", task)
+//        startActivity(intentParaDeatilTaskDoTask)
 
     }
 
     fun onClickAddNewTask() {
         adapter.add(Task("Lazer","Lazer todos finais de semana",TaskLogoUrl.LAZER))
+    }
+
+    override fun onDelete(task: Task) {
+        if (tasksRecycleView.adapter is AdapterTaskRecycleView) {
+            (tasksRecycleView.adapter as AdapterTaskRecycleView).removerTask(task)
+        }
+    }
+
+    override fun onEdit(task: Task) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onInfo(task: Task) {
+        // TODO: navegar para outra tela
+        val intentParaDeatilTaskDoTask = Intent(this, DetailTaskActivity::class.java)
+        intentParaDeatilTaskDoTask.putExtra("parametro-task", task)
+        startActivity(intentParaDeatilTaskDoTask)
     }
 }
