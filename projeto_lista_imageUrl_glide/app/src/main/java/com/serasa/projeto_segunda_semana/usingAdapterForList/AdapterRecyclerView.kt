@@ -1,7 +1,6 @@
 package com.serasa.projeto_segunda_semana.usingAdapterForList
 
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -48,7 +47,7 @@ class ItemCarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             text = car.ano.toString()
         }
         itemView.findViewById<ImageView>(R.id.imageCarAvatar).apply {
-             Glide.with(itemView).load(car.url).into(this)
+             Glide.with(itemView).load(car.logo.url).into(this)
         }
 
     }
