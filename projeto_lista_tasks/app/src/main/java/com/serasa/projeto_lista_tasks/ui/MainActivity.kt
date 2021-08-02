@@ -35,9 +35,11 @@ class MainActivity : AppCompatActivity(), ClickableTask {
             Task("Trabalho", "Segunda a sexta das 9h as 18h", TaskLogoUrl.TRABALHO),
         )
 
-        adapter = AdapterTaskRecycleView(listOfTask) {
-            onClickItemTask(it)
-        }
+//        adapter = AdapterTaskRecycleView(listOfTask) {
+//            onClickItemTask(it)
+//        }
+        adapter = AdapterTaskRecycleView(listOfTask, this)
+
 
         findViewById<Button>(R.id.buttonAddNewTask).setOnClickListener {
             onClickAddNewTask()

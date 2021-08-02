@@ -13,7 +13,8 @@ import com.serasa.projeto_lista_tasks.model.Task
 
 class AdapterTaskRecycleView(
     val listOfTask: MutableList<Task>,
-    val onClick: (Task) -> Unit
+//    val onClick: (Task) -> Unit
+    val onClickAble: ClickableTask
 ): RecyclerView.Adapter<ItemTaskViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemTaskViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.lista_tasks, parent, false)
@@ -23,11 +24,12 @@ class AdapterTaskRecycleView(
     override fun onBindViewHolder(holder: ItemTaskViewHolder, position: Int) {
         listOfTask[position].apply {
             holder.bind(this)
-            holder.itemView.findViewById<Button>(R.id.buttonEditar).setOnClickListener {
-                onClick(this)
+            holder.itemView.findViewById<Button>(R.id.buttonInfo).setOnClickListener {
+//                onClick(this)
+                onClickAble.onInfo(this)
             }
             holder.itemView.findViewById<Button>(R.id.buttonExcluir).setOnClickListener {
-                removerTask(this)
+                onClickAble.onDelete(this)
             }
 //            holder.itemView.findViewById<Button>(R.id.buttonAddNewTask).setOnClickListener {
 //                add(this)
