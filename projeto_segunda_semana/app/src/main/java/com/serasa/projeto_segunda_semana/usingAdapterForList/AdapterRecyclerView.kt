@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.serasa.projeto_segunda_semana.R
 import com.serasa.projeto_segunda_semana.model.Car
 
@@ -23,6 +25,8 @@ class AdapterRecyclerView(
         listOfCars[position].apply {
             holder.bind(this)
         }
+
+
     }
 
     override fun getItemCount(): Int {
@@ -43,6 +47,12 @@ class ItemCarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.findViewById<TextView>(R.id.textAnoCarDescription).apply {
             text = car.ano.toString()
         }
+        itemView.findViewById<ImageView>(R.id.imageCarAvatar).apply {
+             Glide.with(itemView).load(car.url).into(this)
+        }
 
     }
+
+
+
 }

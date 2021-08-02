@@ -24,11 +24,16 @@ class MainActivity : AppCompatActivity() {
 
         // TODO: criando array de cars
         val listOfCars = listOf<Car>(
-            Car("Mercedes", "AMG A 45 S",2019),
-            Car("Mercedes", "AMG Class S",2021),
-            Car("BMW", "345i",2018),
-            Car("Chevrolet", "Camaro",2017),
-            Car("Dodge", "Muscle Car",1999),
+            Car("Mercedes", "AMG A 45 S",2019,
+                "https://cdn.motor1.com/images/mgl/W3Ze6/s3/mercedes-amg-a-45-4matic-2019.jpg"),
+            Car("Mercedes", "AMG Class S",2021,
+                "https://cdn.motor1.com/images/mgl/W3Ze6/s3/mercedes-amg-a-45-4matic-2019.jpg"),
+            Car("BMW", "345i",2018,
+                "https://cdn.motor1.com/images/mgl/W3Ze6/s3/mercedes-amg-a-45-4matic-2019.jpg"),
+            Car("Chevrolet", "Camaro",2017,
+                "https://cdn.motor1.com/images/mgl/W3Ze6/s3/mercedes-amg-a-45-4matic-2019.jpg"),
+            Car("Dodge", "Muscle Car",1999,
+                "https://cdn.motor1.com/images/mgl/W3Ze6/s3/mercedes-amg-a-45-4matic-2019.jpg"),
         )
 
 
