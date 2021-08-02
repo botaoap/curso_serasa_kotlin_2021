@@ -12,7 +12,8 @@ import com.serasa.projeto_lista_tasks.R
 import com.serasa.projeto_lista_tasks.model.Task
 
 class AdapterTaskRecycleView(
-    val listOfTask: List<Task>
+    val listOfTask: List<Task>,
+    val onClick: (Task) -> Unit
 ): RecyclerView.Adapter<ItemTaskViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemTaskViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.lista_tasks, parent, false)
@@ -22,6 +23,9 @@ class AdapterTaskRecycleView(
     override fun onBindViewHolder(holder: ItemTaskViewHolder, position: Int) {
         listOfTask[position].apply {
             holder.bind(this)
+            holder.itemView.setOnClickListener {
+                onClick(this)
+            }
         }
     }
 
