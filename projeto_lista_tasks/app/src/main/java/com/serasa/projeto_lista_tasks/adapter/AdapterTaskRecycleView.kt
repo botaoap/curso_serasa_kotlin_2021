@@ -29,6 +29,9 @@ class AdapterTaskRecycleView(
             holder.itemView.findViewById<Button>(R.id.buttonExcluir).setOnClickListener {
                 removerTask(this)
             }
+//            holder.itemView.findViewById<Button>(R.id.buttonAddNewTask).setOnClickListener {
+//                add(this)
+//            }
         }
     }
 
@@ -40,6 +43,12 @@ class AdapterTaskRecycleView(
         listOfTask.remove(task)
         notifyDataSetChanged()
     }
+
+    fun add(task: Task) {
+        listOfTask.add(task)
+        notifyDataSetChanged()
+    }
+
 
 }
 

@@ -37,6 +37,9 @@ class MainActivity : AppCompatActivity() {
             onClick(it)
         }
 
+        findViewById<Button>(R.id.buttonAddNewTask).setOnClickListener {
+            onClickAddNewTask()
+        }
 
         tasksRecycleView = findViewById(R.id.tasksRecycleView)
         tasksRecycleView.layoutManager = LinearLayoutManager(
@@ -53,4 +56,7 @@ class MainActivity : AppCompatActivity() {
         Snackbar.make(tasksRecycleView, task.nomeTask, Snackbar.LENGTH_LONG).show()
     }
 
+    fun onClickAddNewTask() {
+        adapter.add(Task("Lazer","Lazer todos finais de semana",TaskLogoUrl.LAZER))
+    }
 }
