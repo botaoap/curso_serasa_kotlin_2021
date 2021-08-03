@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imageAvatarLista"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_margin="@dimen/margin_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/ic_launcher_background"
+        />
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginStart="@dimen/margin_default"
+        android:text="Titulo"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/imageAvatarLista"
+        app:layout_constraintTop_toTopOf="@id/imageAvatarLista"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginTop="5sp"
+        android:text="Description"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@id/imageAvatarLista"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="@dimen/witdth_button"
+        android:layout_height="@dimen/height_button"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginBottom="4dp"
+        android:text="Edit"
+        android:textSize="@dimen/text_button"
+        app:layout_constraintStart_toEndOf="@id/imageAvatarLista"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        />
+    <Button
+        android:id="@+id/infoButton"
+        android:layout_width="@dimen/witdth_button"
+        android:layout_height="@dimen/height_button"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginBottom="4dp"
+        android:text="Info"
+        android:textSize="@dimen/text_button"
+        app:layout_constraintStart_toEndOf="@id/editButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/deletetButton"
+        />
+    <Button
+        android:id="@+id/deletetButton"
+        android:layout_width="@dimen/witdth_button"
+        android:layout_height="@dimen/height_button"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginBottom="4dp"
+        android:text="Delete"
+        android:textSize="@dimen/text_button"
+        app:layout_constraintStart_toEndOf="@id/infoButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:alpha="0.12"
+        app:layout_constraintTop_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
