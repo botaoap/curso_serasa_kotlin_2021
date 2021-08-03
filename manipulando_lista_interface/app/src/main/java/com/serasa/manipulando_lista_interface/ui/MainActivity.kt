@@ -46,11 +46,11 @@ class MainActivity : AppCompatActivity(), ClickableList {
         )
         todoRecyclerView.adapter = adapater
 
-        // TODO: 03/08/21 Configurando buttons
+
 
 
     }
-
+    // TODO: 03/08/21 Configurando buttons
     override fun onAdd(todo: ListTodo) {
         adapater.add(ListTodo("AddTest","AddDescription",ListTodoLogoUrl.LOGO))
     }
