@@ -48,10 +48,11 @@ class MainActivity : AppCompatActivity(), ClickableList {
 
         // TODO: 03/08/21 Configurando buttons
 
+
     }
 
     override fun onAdd(todo: ListTodo) {
-        
+        adapater.add(ListTodo("AddTest","AddDescription",ListTodoLogoUrl.LOGO))
     }
 
     override fun onEdit(todo: ListTodo) {

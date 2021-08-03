@@ -30,6 +30,9 @@ class AdapterListTodo(
             holder.itemView.findViewById<Button>(R.id.deletetButton).setOnClickListener {
                 onClickable.onDelete(this)
             }
+            holder.itemView.findViewById<Button>(R.id.addButton).setOnClickListener {
+                onClickable.onAdd(this)
+            }
         }
     }
 
@@ -39,6 +42,11 @@ class AdapterListTodo(
 
     fun removeTodo(todo: ListTodo) {
         listOfTodo.remove(todo)
+        notifyDataSetChanged()
+    }
+
+    fun add(todo: ListTodo) {
+        listOfTodo.add(todo)
         notifyDataSetChanged()
     }
 
