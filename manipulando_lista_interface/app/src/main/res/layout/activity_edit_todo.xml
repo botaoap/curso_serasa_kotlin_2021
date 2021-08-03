@@ -6,14 +6,14 @@
 
     <ImageView
         android:id="@+id/logoDetailImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
+    <EditText
         android:id="@+id/titleDetailTextView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -26,7 +26,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
+    <EditText
         android:id="@+id/descriptiomDetailTextView"
         android:layout_width="match_parent"
         android:layout_height="0dp"

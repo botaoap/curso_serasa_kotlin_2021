@@ -2,16 +2,17 @@ package com.serasa.manipulando_lista_interface.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.serasa.manipulando_lista_interface.R
 import com.serasa.manipulando_lista_interface.model.ListTodo
 
-class DetailTodoActivity : AppCompatActivity() {
+class EditTodoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_todo2)
+        setContentView(R.layout.activity_edit_todo)
         
         val todo = intent.getSerializableExtra("parametro-todo") as? ListTodo
 

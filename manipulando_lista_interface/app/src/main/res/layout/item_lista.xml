@@ -43,6 +43,18 @@
         />
 
     <Button
+        android:id="@+id/addButton"
+        android:layout_width="@dimen/witdth_button"
+        android:layout_height="@dimen/height_button"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_bottom_button"
+        android:text="ADD"
+        android:textSize="@dimen/text_button"
+        app:layout_constraintStart_toEndOf="@id/imageAvatarList"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        />
+    <Button
         android:id="@+id/editButton"
         android:layout_width="@dimen/witdth_button"
         android:layout_height="@dimen/height_button"
@@ -50,19 +62,7 @@
         android:layout_marginBottom="@dimen/margin_bottom_button"
         android:text="Edit"
         android:textSize="@dimen/text_button"
-        app:layout_constraintStart_toEndOf="@id/imageAvatarList"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        />
-    <Button
-        android:id="@+id/infoButton"
-        android:layout_width="@dimen/witdth_button"
-        android:layout_height="@dimen/height_button"
-        android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginBottom="@dimen/margin_bottom_button"
-        android:text="Info"
-        android:textSize="@dimen/text_button"
-        app:layout_constraintStart_toEndOf="@id/editButton"
+        app:layout_constraintStart_toEndOf="@id/addButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/deletetButton"
         />
@@ -75,7 +75,7 @@
         android:layout_marginBottom="@dimen/margin_bottom_button"
         android:text="Delete"
         android:textSize="@dimen/text_button"
-        app:layout_constraintStart_toEndOf="@id/infoButton"
+        app:layout_constraintStart_toEndOf="@id/editButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 

@@ -3,6 +3,7 @@ package com.serasa.manipulando_lista_interface.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -23,11 +24,22 @@ class AdapterListTodo(
     override fun onBindViewHolder(holder: ItemListTodoHolder, position: Int) {
         listOfTodo[position].apply {
             holder.bind(this)
+            holder.itemView.findViewById<Button>(R.id.editButton).setOnClickListener {
+                onClickable.onEdit(this)
+            }
+            holder.itemView.findViewById<Button>(R.id.deletetButton).setOnClickListener {
+                onClickable.onDelete(this)
+            }
         }
     }
 
     override fun getItemCount(): Int {
         return listOfTodo.size
+    }
+
+    fun removeTodo(todo: ListTodo) {
+        listOfTodo.remove(todo)
+        notifyDataSetChanged()
     }
 
 

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Manipulando_lista_interface">
         <activity
-            android:name=".ui.DetailTodoActivity"
+            android:name=".ui.EditTodoActivity"
             android:exported="true" />
         <activity
             android:name=".ui.MainActivity"
