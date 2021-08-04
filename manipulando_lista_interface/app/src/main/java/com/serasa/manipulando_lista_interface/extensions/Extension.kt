@@ -11,21 +11,21 @@ fun AppCompatActivity.showMessage(view: View, message: String) {
 
 // TODO: Criando extension para uma String
 
-fun String.concatNameWithCompany() : String {
+fun String.concatNameWithCompany(): String {
     return "$this - Proway"
 }
 
 
 // TODO: Criar extension para remover ponto e traco do CPF
-fun String.concatPontoTracoCpf() : String? {
+fun String.concatPontoTracoCpf(): String? {
     if (length == 14) {
-        return replace(".","").replace("-","")
+        return replace(".", "").replace("-", "")
     }
     return null
 }
 
 // TODO: Colocar os pontos e o traco no CPF
-fun String.adicionadoPontoTracoCpf() : String? {
+fun String.adicionadoPontoTracoCpf(): String? {
     val padraoCpf = "([0-9]{3})([0-9]{3})([0-9]{3})([0-9]{2})".toRegex()
     val padraoEscrito = "$1.$2.$3-$4"
 
