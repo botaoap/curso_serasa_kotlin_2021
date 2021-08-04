@@ -1,4 +1,16 @@
 package com.serasa.login_serasa.model
 
-class Login {
+import java.io.Serializable
+
+data class Login(
+    val cpf: String,
+    val pws: String
+): Serializable {
+    fun isValidCpf() : Boolean{
+        return cpf.length == 11
+    }
+
+    fun isVlaidPws() : Boolean{
+        return pws.length >= 6
+    }
 }

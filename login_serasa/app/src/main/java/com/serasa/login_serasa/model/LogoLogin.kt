@@ -1,4 +1,5 @@
 package com.serasa.login_serasa.model
 
-interface LogoLogin {
+enum class LogoLogin(val url: String) {
+    LOGO_SERASA("")
 }
