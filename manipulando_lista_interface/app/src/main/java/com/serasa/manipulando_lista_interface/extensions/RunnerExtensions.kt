@@ -7,7 +7,7 @@ fun main() {
 
     val cpfErrado = "09823993988"
 
-    println("Old: $cpfCerto | New: ${cpfErrado.adicionadoPontoTracoCpf()}")
+    println("Old: $cpfErrado | New: ${cpfErrado.adicionadoPontoTracoCpf()}")
 }
 
 // TODO: Criando extension para uma String
