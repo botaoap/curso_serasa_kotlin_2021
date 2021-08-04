@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Manipulando_lista_interface">
         <activity
+            android:name=".ui.SegundaActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.LifeCycleActivity"
             android:exported="true">
             <intent-filter>
