@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">login_serasa</string>
+    <string name="buttom_text_login">Login</string>
+    <string name="buttom_text_cadastrar">Cadastrar</string>
+</resources>
