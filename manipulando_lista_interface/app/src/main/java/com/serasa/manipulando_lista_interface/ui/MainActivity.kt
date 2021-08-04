@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.serasa.manipulando_lista_interface.R
 import com.serasa.manipulando_lista_interface.adapter.AdapterListTodo
 import com.serasa.manipulando_lista_interface.adapter.ClickableList
+import com.serasa.manipulando_lista_interface.extensions.concatNameWithCompany
+import com.serasa.manipulando_lista_interface.extensions.showMessage
 import com.serasa.manipulando_lista_interface.model.ListTodo
 import com.serasa.manipulando_lista_interface.model.ListTodoLogoUrl
 
@@ -57,9 +59,11 @@ class MainActivity : AppCompatActivity(), ClickableList {
 
     override fun onEdit(todo: ListTodo) {
         // TODO: 03/08/21 Navegar para a tela de Detail
-        val intentToDetailTodoActivity = Intent(this, EditTodoActivity::class.java)
-        intentToDetailTodoActivity.putExtra("parametro-todo", todo)
-        startActivity(intentToDetailTodoActivity)
+//        val intentToDetailTodoActivity = Intent(this, EditTodoActivity::class.java)
+//        intentToDetailTodoActivity.putExtra("parametro-todo", todo)
+//        startActivity(intentToDetailTodoActivity)
+
+        showMessage(todoRecyclerView, todo.title.concatNameWithCompany())
     }
 
     override fun onDelete(todo: ListTodo) {

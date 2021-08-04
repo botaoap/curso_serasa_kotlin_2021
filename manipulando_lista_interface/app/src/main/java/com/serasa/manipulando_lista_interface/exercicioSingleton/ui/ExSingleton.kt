@@ -21,6 +21,8 @@ class ExSingleton : AppCompatActivity(), ClickableSingleton {
         setContentView(R.layout.activity_ex_singleton)
 
         chamandoSingleton()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun chamandoSingleton(){
@@ -57,6 +59,11 @@ class ExSingleton : AppCompatActivity(), ClickableSingleton {
         findViewById<TextView>(R.id.TextViewQtdItemLista).apply {
             text = "Qtd itens na lista: ${ListaSingleton.listaProdutos.size}"
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 
 }
