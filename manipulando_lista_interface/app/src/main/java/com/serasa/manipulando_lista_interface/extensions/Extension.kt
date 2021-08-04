@@ -17,15 +17,20 @@ fun String.concatNameWithCompany() : String {
 
 
 // TODO: Criar extension para remover ponto e traco do CPF
-fun String.concatPontoTracoCpf() : String {
-
-    return replace(".","").replace("-","")
+fun String.concatPontoTracoCpf() : String? {
+    if (length == 14) {
+        return replace(".","").replace("-","")
+    }
+    return null
 }
 
 // TODO: Colocar os pontos e o traco no CPF
-fun String.adicionadoPontoTracoCpf() : String {
+fun String.adicionadoPontoTracoCpf() : String? {
     val padraoCpf = "([0-9]{3})([0-9]{3})([0-9]{3})([0-9]{2})".toRegex()
     val padraoEscrito = "$1.$2.$3-$4"
 
-    return replace(padraoCpf, padraoEscrito)
+    if (length == 11) {
+        return replace(padraoCpf, padraoEscrito)
+    }
+    return null
 }

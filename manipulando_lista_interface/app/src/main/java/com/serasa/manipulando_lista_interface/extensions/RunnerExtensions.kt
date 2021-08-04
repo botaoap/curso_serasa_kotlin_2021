@@ -5,7 +5,7 @@ fun main() {
 
     println("Old: $cpfCerto | New: ${cpfCerto.concatPontoTracoCpf()}")
 
-    val cpfErrado = "09823993988"
+    val cpfErrado = "09823099398"
 
     println("Old: $cpfErrado | New: ${cpfErrado.adicionadoPontoTracoCpf()}")
 }
