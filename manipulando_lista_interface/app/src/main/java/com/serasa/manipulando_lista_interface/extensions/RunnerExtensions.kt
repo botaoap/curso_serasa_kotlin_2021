@@ -3,11 +3,11 @@ package com.serasa.manipulando_lista_interface.extensions
 fun main() {
     val cpfCerto = "084.000.000-44"
 
-    println(cpfCerto.concatPontoTracoCpf())
+    println("Old: $cpfCerto | New: ${cpfCerto.concatPontoTracoCpf()}")
 
     val cpfErrado = "09823993988"
 
-    println(cpfErrado.adicionadoPontoTracoCpf())
+    println("Old: $cpfCerto | New: ${cpfErrado.adicionadoPontoTracoCpf()}")
 }
 
 // TODO: Criando extension para uma String
