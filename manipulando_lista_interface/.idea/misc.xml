@@ -6,10 +6,13 @@
         <entry key="app/src/main/res/layout/activity_detail_todo.xml" value="0.2848731884057971" />
         <entry key="app/src/main/res/layout/activity_detail_todo2.xml" value="0.2848731884057971" />
         <entry key="app/src/main/res/layout/activity_edit_todo.xml" value="0.11820652173913043" />
+        <entry key="app/src/main/res/layout/activity_ex_singleton.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_life_cycle.xml" value="0.11820652173913043" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_segunda.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_show_singleton.xml" value="0.2803442028985507" />
         <entry key="app/src/main/res/layout/item_lista.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_lista_singleton.xml" value="0.2803442028985507" />
       </map>
     </option>
   </component>
