@@ -69,7 +69,7 @@ class LayoutApiActivity : AppCompatActivity() {
                 println("Sucesso na conexao")
                 progressBar.visibility = View.GONE
                 response.body()?.apply {
-                    adapter.atualizarLista(this.sortedBy { it.code })
+                    adapter.atualizarLista(this.sortedBy { it.code.toIntOrNull() })
                 }
             }
 
