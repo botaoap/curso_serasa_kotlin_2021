@@ -1,3 +1,13 @@
 package com.serasa.login_serasa.conexoesApi.dataClassApi
 
-data class OutApi()
+import com.google.gson.annotations.SerializedName
+
+data class OutApi(
+
+    @SerializedName("nome")
+    var name : String,
+
+    @SerializedName("codigo")
+    var code : String
+
+)
