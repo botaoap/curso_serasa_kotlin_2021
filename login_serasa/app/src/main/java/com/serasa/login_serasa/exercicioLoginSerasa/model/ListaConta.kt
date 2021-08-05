@@ -1,4 +1,4 @@
-package com.serasa.login_serasa.model
+package com.serasa.login_serasa.exercicioLoginSerasa.model
 
 data class ListaConta(
 

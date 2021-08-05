@@ -1,4 +1,4 @@
-package com.serasa.login_serasa.adapter
+package com.serasa.login_serasa.exercicioLoginSerasa.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.serasa.login_serasa.R
-import com.serasa.login_serasa.model.ListaConta
-import com.serasa.login_serasa.model.Login
-import com.serasa.login_serasa.singleton.ListaContaSingleton
-import com.serasa.login_serasa.singleton.LoginSingleton
+import com.serasa.login_serasa.exercicioLoginSerasa.model.ListaConta
+import com.serasa.login_serasa.exercicioLoginSerasa.singleton.ListaContaSingleton
 
 class AdapterLogin(
 
-    val onClickable: ClickableLogin
 
 ) : RecyclerView.Adapter<ItemLoginHolder>() {
 

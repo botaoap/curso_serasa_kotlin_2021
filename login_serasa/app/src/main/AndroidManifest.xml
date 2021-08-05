@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login_serasa">
         <activity
-            android:name=".ui.ListaContaActivity"
+            android:name="com.serasa.login_serasa.exercicioLoginSerasa.ui.ListaContaActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.serasa.login_serasa.exercicioLoginSerasa.ui.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>

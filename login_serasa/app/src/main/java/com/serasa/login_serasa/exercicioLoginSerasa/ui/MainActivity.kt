@@ -1,21 +1,23 @@
-package com.serasa.login_serasa.ui
+package com.serasa.login_serasa.exercicioLoginSerasa.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import com.serasa.login_serasa.R
-import com.serasa.login_serasa.adapter.ClickableLogin
-import com.serasa.login_serasa.model.Login
-import com.serasa.login_serasa.singleton.LoginSingleton
+import com.serasa.login_serasa.exercicioLoginSerasa.model.Login
+import com.serasa.login_serasa.exercicioLoginSerasa.model.LogoLogin
+import com.serasa.login_serasa.exercicioLoginSerasa.singleton.LoginSingleton
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var inputCpf: EditText
     private lateinit var inputPws: EditText
     private lateinit var buttonLogin: Button
+    private lateinit var logoSerasa : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,14 @@ class MainActivity : AppCompatActivity() {
         inputCpf = findViewById(R.id.editTextCpf)
         inputPws = findViewById(R.id.editTextPws)
         buttonLogin = findViewById(R.id.buttonLogin)
+        logoSerasa = findViewById(R.id.imageViewAvatarLogin)
+
+        findViewById<ImageView>(R.id.imageViewAvatarLogin).apply {
+            Glide.with(logoSerasa)
+                .load(LogoLogin.LOGO_SERASA.url)
+                .placeholder(R.drawable.ic_baseline_error_24)
+                .into(this)
+        }
 
         buttonLogin.setOnClickListener {
             if (validaCamposParaLogin()){
