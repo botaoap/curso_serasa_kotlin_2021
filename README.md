@@ -1,7 +1,7 @@
 # # Codigo para todxs Serasa 2021
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 <div>
-  <<a href="https://github.com/botaoap">
+  <a href="https://github.com/botaoap">
   <img src="https://img.shields.io/github/repo-size/botaoap/curso_serasa_kotlin_2021">
   </a>
 </div>
