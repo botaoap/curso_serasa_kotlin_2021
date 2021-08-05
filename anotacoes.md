@@ -31,3 +31,10 @@
 - UUID, gera um ID poaro User
 - Lateinit
 - LayoutInflater
+### API
+- HTTP
+- Como fazer uma requisicao HTTP
+- Saber como funciona o endpoint
+- Documentacao Swagger
+- Load Balance
+- Api gratuitas/ Fipe
