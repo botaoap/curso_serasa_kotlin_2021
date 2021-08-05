@@ -39,7 +39,7 @@ class ItemLoginHolder(itemView: View): RecyclerView.ViewHolder(itemView){
             text = conta.title
         }
         itemView.findViewById<TextView>(R.id.texteViewValorConta).apply {
-            text = conta.valor.toString()
+            text = "R$ %.2f".format(conta.valor).toString()
         }
         itemView.findViewById<TextView>(R.id.texteViewDescriptionConta).apply {
             text = conta.description
