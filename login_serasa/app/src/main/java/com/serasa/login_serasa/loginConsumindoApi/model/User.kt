@@ -2,6 +2,8 @@ package com.serasa.login_serasa.loginConsumindoApi.model
 
 import androidx.annotation.StringRes
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+import java.io.SerializablePermission
 
 data class User(
 
@@ -20,5 +22,7 @@ data class User(
     @SerializedName("phone")
     var phone : String,
 
-    val name: Name
-)
+    val name: Name,
+
+    val address: Address
+) : Serializable

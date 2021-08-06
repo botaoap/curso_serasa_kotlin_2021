@@ -1,5 +1,7 @@
 package com.serasa.login_serasa.loginConsumindoApi.model
 
+import java.io.Serializable
+
 data class Address(
 
     val geolocation: Geolocation,
@@ -8,4 +10,4 @@ data class Address(
     val number: Int,
     val zipcode: String
 
-)
+) : Serializable
