@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".loginConsumindoApi.ui.ExibindoListaApi"
     android:layout_margin="@dimen/margin_default">
-
-    <
+    
 
     <TextView
         android:id="@+id/textViewFirstNameDetail"
