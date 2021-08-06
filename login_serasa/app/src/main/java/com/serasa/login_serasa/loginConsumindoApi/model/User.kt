@@ -15,6 +15,10 @@ data class User(
     var userName : String,
 
     @SerializedName("password")
-    var password : String
+    var password : String,
 
+    @SerializedName("phone")
+    var phone : String,
+
+    val name: Name
 )
