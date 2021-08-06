@@ -21,7 +21,7 @@ class LoginConsumindoApi : AppCompatActivity() {
     private lateinit var inputUser : EditText
     private lateinit var inputPws : EditText
     private lateinit var buttonLogin : Button
-    private lateinit var adapter : AdapterShowListApi
+    private lateinit var user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,10 +62,12 @@ class LoginConsumindoApi : AppCompatActivity() {
 
                     buttonLogin.setOnClickListener {
                         // TODO: 06/08/21 Filtra a lista da Api e retorna o user
+                        // TODO: 06/08/21 Fazendo as validacoes dos campos necessarios de acordo com a Api
                         val filteredListUser = filter { inputUser.text.toString() == it.userName }
                         val filteredListPws = filter { inputPws.text.toString() == it.password}
 
                         if (filteredListUser.isNotEmpty() && filteredListPws.isNotEmpty()){
+                            user = filteredListUser[0]
                             sucessLogin()
                         }else {
                             inputUser.error = "User Invalid"
@@ -80,16 +82,11 @@ class LoginConsumindoApi : AppCompatActivity() {
         })
     }
 
-
-    // TODO: 06/08/21 Fazendo as validacoes dos campos necessarios de acordo com a Api
-    private fun validationLogin() : Boolean {
-
-        return false
-    }
-
     // TODO: 06/08/21 Fun que vai para a proxima tela depois da tela de login
     private fun sucessLogin() {
+
         Intent(this, ExibindoListaApi::class.java).apply {
+            putExtra("passando-user", user)
             startActivity(this)
         }
     }
