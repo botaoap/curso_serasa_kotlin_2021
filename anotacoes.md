@@ -38,3 +38,6 @@
 - Documentacao Swagger
 - Load Balance
 - Api gratuitas/ Fipe
+
+## Back-end
+- JWT, Token security
