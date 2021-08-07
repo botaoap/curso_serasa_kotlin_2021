@@ -8,3 +8,8 @@
 - InputsStyles: [AQUI](https://medium.com/omisoft/textinputlayout-styling-8b36a5e0d73c)
 - Fake Store Api: [AQUI](https://fakestoreapi.com)
 - JWT Security: [AQUI](https://medium.com/@maison.moa/using-jwt-json-web-tokens-to-authorize-users-and-protect-api-routes-3e04a1453c3e)
+
+# Link Para Mac
+- Mac novo: [AQUI](https://www.youtube.com/watch?v=DfvsnMxCpsI)
+- Mac, e agora [AQUI](https://www.tecmundo.com.br/apple/2342-comprei-um-mac-e-agora-.htm)
+- 
