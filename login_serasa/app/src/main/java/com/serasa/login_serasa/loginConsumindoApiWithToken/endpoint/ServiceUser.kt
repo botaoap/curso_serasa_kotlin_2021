@@ -12,7 +12,7 @@ import retrofit2.http.POST
 interface ServiceUser {
 
     @GET("/products")
-    fun getAllProdutc(): Call<List<Products>>
+    fun getAllProducts(): Call<List<Products>>
 
     @POST("/auth/login")
     fun login(@Body credentials: Credentials): Call<Auth>
