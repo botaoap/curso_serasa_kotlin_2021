@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_fake_user_api.xml" value="0.27943840579710144" />
         <entry key="app/src/main/res/layout/item_lista_api.xml" value="0.28396739130434784" />
+        <entry key="app/src/main/res/layout/item_lista_api_products.xml" value="0.29347826086956524" />
         <entry key="app/src/main/res/layout/item_lista_contas.xml" value="0.2930253623188406" />
       </map>
     </option>
