@@ -1,6 +1,5 @@
 package com.serasa.login_serasa.loginConsumindoApiWithToken.model
 
-import androidx.annotation.StringRes
 import com.google.gson.annotations.SerializedName
 
 data class Products(
@@ -10,7 +9,7 @@ data class Products(
     @SerializedName("title")
     val title: String,
     @SerializedName("price")
-    val price: Int,
+    val price: Double,
     @SerializedName("description")
     val description: String,
     @SerializedName("category")
