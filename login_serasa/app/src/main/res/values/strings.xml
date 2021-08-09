@@ -2,4 +2,5 @@
     <string name="app_name">login_serasa</string>
     <string name="buttom_text_login">Login</string>
     <string name="buttom_text_cadastrar">Cadastrar</string>
+    <string name="usuario_invalido">Usuario ou senha invalido</string>
 </resources>
