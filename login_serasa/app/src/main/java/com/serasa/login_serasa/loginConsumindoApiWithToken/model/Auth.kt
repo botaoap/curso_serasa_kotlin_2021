@@ -1,3 +1,9 @@
 package com.serasa.login_serasa.loginConsumindoApiWithToken.model
 
-data class Auth()
+import com.google.gson.annotations.SerializedName
+
+data class Auth(
+    @SerializedName("token")
+    val token: String
+
+)
