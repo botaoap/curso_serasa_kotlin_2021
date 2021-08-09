@@ -12,15 +12,17 @@ import com.serasa.login_serasa.loginConsumindoApi.serviceApi.ConnectionWithRetro
 import com.serasa.login_serasa.loginConsumindoApi.serviceApi.EndpointUser
 import com.serasa.login_serasa.loginConsumindoApiWithToken.endpoint.ServiceUser
 import com.serasa.login_serasa.loginConsumindoApiWithToken.extension.snackBar
+import com.serasa.login_serasa.loginConsumindoApiWithToken.model.Auth
 import com.serasa.login_serasa.loginConsumindoApiWithToken.model.Credentials
 import com.serasa.login_serasa.loginConsumindoApiWithToken.model.UserToken
 import com.serasa.login_serasa.loginConsumindoApiWithToken.serviceApi.ConnectionRetrofitWithToken
 import com.serasa.login_serasa.loginConsumindoApiWithToken.serviceApi.LinksApi
+import com.serasa.login_serasa.loginConsumindoApiWithToken.serviceApi.RetrofitBuilders
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginWithToken : AppCompatActivity(), Callback<List<UserToken>> {
+class LoginWithToken : AppCompatActivity(), Callback<Auth> {
 
     private lateinit var inputUsername: EditText
     private lateinit var inputPassword: EditText
@@ -32,7 +34,6 @@ class LoginWithToken : AppCompatActivity(), Callback<List<UserToken>> {
 
         loadComponents()
         actionToButtonLoginToken()
-        connectionRetrofitToApi()
 
     }
 
@@ -50,9 +51,7 @@ class LoginWithToken : AppCompatActivity(), Callback<List<UserToken>> {
         val credentirals = Credentials(username, password)
 
         if (credentirals.checkUserName() && credentirals.checkPassword()) {
-            Intent(this, DetailUserTokenActivity::class.java).apply {
-                startActivity(this)
-            }
+                connectionRetrofitToApi(credentirals)
         }else {
             snackBar(inputUsername, R.string.usuario_invalido)
         }
@@ -64,14 +63,20 @@ class LoginWithToken : AppCompatActivity(), Callback<List<UserToken>> {
         buttonToken = findViewById<Button>(R.id.buttonLoginUserWithToken)
     }
 
-    fun connectionRetrofitToApi() {
-//        val getConnection =
-        ConnectionRetrofitWithToken
-            .getRetrofitInstance(LinksApi.FAKE_STORE_API.url)
-            .create(ServiceUser::class.java)
-            .getAll()
-            .clone().enqueue(this)
+    fun connectionRetrofitToApi(credentirals: Credentials) {
+        RetrofitBuilders
+            .getAuthenticationServices()
+            .login(credentirals)
+            .clone()
+            .enqueue(this)
 
+    //        val getConnection =
+
+//        ConnectionRetrofitWithToken
+//            .getRetrofitInstance(LinksApi.FAKE_STORE_API.url)
+//            .create(ServiceUser::class.java)
+//            .getAll()
+//            .clone().enqueue(this)
 //        val endpoint = getConnection.create(ServiceUser::class.java)
 //        val callback = endpoint.getAll()
 //
@@ -79,11 +84,18 @@ class LoginWithToken : AppCompatActivity(), Callback<List<UserToken>> {
 
     }
 
-    override fun onResponse(
-        call: Call<List<UserToken>>,
-        response: Response<List<UserToken>>
-    ) {
+    override fun onResponse(call: Call<Auth>, response: Response<Auth>) {
         println("Success Connection")
+        response.body()?.let {
+            if (response.body()!!.isError()) {
+                snackBar(inputUsername, R.string.usuario_invalido)
+            } else {
+                Intent(this, DetailUserTokenActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+        }
+
 //        val user = response.body()?.let { listOfUser ->
 //            listOfUser.filter {
 //                inputUsername.text.toString() == it.username
@@ -102,8 +114,9 @@ class LoginWithToken : AppCompatActivity(), Callback<List<UserToken>> {
 
     }
 
-    override fun onFailure(call: Call<List<UserToken>>, t: Throwable) {
+    override fun onFailure(call: Call<Auth>, t: Throwable) {
         println("Failure Connection")
+        snackBar(inputUsername, R.string.usuario_invalido)
     }
 
 }
