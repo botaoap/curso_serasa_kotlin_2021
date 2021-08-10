@@ -3,16 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/buttonReplace"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_default"
-        android:text="@string/replace"/>
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/buttonFrag1"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/margin_default"
+            android:text="Frag 1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/buttonFrag2"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <Button
+            android:id="@+id/buttonFrag2"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/margin_default"
+            android:text="Frag 2"
+            app:layout_constraintStart_toEndOf="@id/buttonFrag1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/buttonFrag3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <Button
+            android:id="@+id/buttonFrag3"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/margin_default"
+            android:text="Frag 3"
+            app:layout_constraintStart_toEndOf="@id/buttonFrag2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
