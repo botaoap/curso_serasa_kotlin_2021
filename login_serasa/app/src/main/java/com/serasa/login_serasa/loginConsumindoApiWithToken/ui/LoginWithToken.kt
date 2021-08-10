@@ -82,7 +82,7 @@ class LoginWithToken : AppCompatActivity(), Callback<Auth> {
             if (response.body()!!.isError()) {
                 snackBar(inputUsername, R.string.usuario_invalido)
             } else {
-                Intent(this, DetailUserTokenActivity::class.java).apply {
+                Intent(this, ListOfProductActivity::class.java).apply {
                     startActivity(this)
                 }
             }

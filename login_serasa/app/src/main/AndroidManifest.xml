@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login_serasa">
         <activity
-            android:name=".loginConsumindoApiWithToken.ui.DetailUserTokenActivity"
+            android:name=".loginConsumindoApiWithToken.ui.DetailOneProductOfListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".loginConsumindoApiWithToken.ui.ListOfProductActivity"
             android:exported="true" />
         <activity
             android:name=".loginConsumindoApiWithToken.ui.LoginWithToken"
@@ -31,7 +34,7 @@
         <activity
             android:name=".loginConsumindoApi.ui.LoginConsumindoApi"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".conexoesApi.ui.LayoutApiActivity"
             android:exported="true" />

@@ -12,8 +12,10 @@ import com.serasa.login_serasa.R
 import com.serasa.login_serasa.loginConsumindoApiWithToken.model.Products
 
 class AdapterRecyclerViewListOfProducts(
-    var listOfProduct :  MutableList<Products>
+    val onClick: (Products) -> Unit
 ) : RecyclerView.Adapter<ItemListOfProductsHolder>() {
+
+    private var listOfProduct = mutableListOf<Products>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemListOfProductsHolder {
         val view = LayoutInflater.from(parent.context)
@@ -24,6 +26,9 @@ class AdapterRecyclerViewListOfProducts(
     override fun onBindViewHolder(holder: ItemListOfProductsHolder, position: Int) {
         listOfProduct[position].apply {
             holder.bind(this)
+            holder.itemView.setOnClickListener {
+                onClick(this)
+            }
         }
     }
 
