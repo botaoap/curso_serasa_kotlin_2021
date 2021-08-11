@@ -31,6 +31,8 @@
 - UUID, gera um ID poaro User
 - Lateinit
 - LayoutInflater
+- Arquitetura MVVN
+
 ### API
 - HTTP
 - Como fazer uma requisicao HTTP
