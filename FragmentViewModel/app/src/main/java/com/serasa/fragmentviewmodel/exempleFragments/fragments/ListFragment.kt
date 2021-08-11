@@ -1,4 +1,4 @@
-package com.serasa.fragmentviewmodel.fragments
+package com.serasa.fragmentviewmodel.exempleFragments.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.serasa.fragmentviewmodel.R
-import com.serasa.fragmentviewmodel.adapter.AdapterToFragment
+import com.serasa.fragmentviewmodel.exempleFragments.adapter.AdapterToFragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

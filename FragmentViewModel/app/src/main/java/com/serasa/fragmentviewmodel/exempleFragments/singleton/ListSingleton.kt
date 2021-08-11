@@ -1,6 +1,6 @@
-package com.serasa.fragmentviewmodel.singleton
+package com.serasa.fragmentviewmodel.exempleFragments.singleton
 
-import com.serasa.fragmentviewmodel.model.ListWhatEver
+import com.serasa.fragmentviewmodel.exempleFragments.model.ListWhatEver
 
 object ListSingleton {
 

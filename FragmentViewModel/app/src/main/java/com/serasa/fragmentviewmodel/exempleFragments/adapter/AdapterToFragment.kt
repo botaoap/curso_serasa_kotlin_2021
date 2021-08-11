@@ -1,14 +1,13 @@
-package com.serasa.fragmentviewmodel.adapter
+package com.serasa.fragmentviewmodel.exempleFragments.adapter
 
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.serasa.fragmentviewmodel.R
-import com.serasa.fragmentviewmodel.model.ListWhatEver
-import com.serasa.fragmentviewmodel.singleton.ListSingleton
+import com.serasa.fragmentviewmodel.exempleFragments.model.ListWhatEver
+import com.serasa.fragmentviewmodel.exempleFragments.singleton.ListSingleton
 
 class AdapterToFragment(
 

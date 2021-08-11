@@ -2,18 +2,12 @@ package com.serasa.fragmentviewmodel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Adapter
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.serasa.fragmentviewmodel.adapter.AdapterToFragment
-import com.serasa.fragmentviewmodel.fragments.GetAllFragment
-import com.serasa.fragmentviewmodel.fragments.ListFragment
-import com.serasa.fragmentviewmodel.fragments.PrimeiroFragment
-import com.serasa.fragmentviewmodel.fragments.SegundoFragment
-import com.serasa.fragmentviewmodel.model.ListWhatEver
-import java.util.concurrent.RecursiveAction
+import com.serasa.fragmentviewmodel.exempleFragments.fragments.GetAllFragment
+import com.serasa.fragmentviewmodel.exempleFragments.fragments.ListFragment
+import com.serasa.fragmentviewmodel.exempleFragments.fragments.PrimeiroFragment
+import com.serasa.fragmentviewmodel.exempleFragments.fragments.SegundoFragment
 
 class MainActivity : AppCompatActivity() {
 

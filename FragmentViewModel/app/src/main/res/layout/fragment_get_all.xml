@@ -5,7 +5,7 @@
     android:id="@+id/frameAll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.GetAllFragment">
+    tools:context=".exempleFragments.fragments.GetAllFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -18,14 +18,14 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/framePrimeiro"
-            android:name="com.serasa.fragmentviewmodel.fragments.PrimeiroFragment"
+            android:name="com.serasa.fragmentviewmodel.exempleFragments.fragments.PrimeiroFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/frameSegundo"
-            android:name="com.serasa.fragmentviewmodel.fragments.SegundoFragment"
+            android:name="com.serasa.fragmentviewmodel.exempleFragments.fragments.SegundoFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -34,7 +34,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frameList"
-        android:name="com.serasa.fragmentviewmodel.fragments.ListFragment"
+        android:name="com.serasa.fragmentviewmodel.exempleFragments.fragments.ListFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
