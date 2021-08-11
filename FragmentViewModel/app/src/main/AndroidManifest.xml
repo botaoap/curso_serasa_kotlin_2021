@@ -10,8 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FragmentViewModel">
         <activity
-            android:name="com.serasa.fragmentviewmodel.exempleFragments.fragments.GetAllActivity"
-            android:exported="true" />
+            android:name=".secondFragment.ui.MainFragmentsActivity"
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
