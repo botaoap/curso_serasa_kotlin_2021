@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.serasa.fragmentviewmodel.adapter.AdapterToFragment
+import com.serasa.fragmentviewmodel.fragments.GetAllFragment
 import com.serasa.fragmentviewmodel.fragments.ListFragment
 import com.serasa.fragmentviewmodel.fragments.PrimeiroFragment
 import com.serasa.fragmentviewmodel.fragments.SegundoFragment
@@ -38,6 +39,11 @@ class MainActivity : AppCompatActivity() {
             setOnClickListener {
 
                 replaceFrag(ListFragment())
+            }
+        }
+        findViewById<Button>(R.id.buttonAllFrag).apply {
+            setOnClickListener {
+                replaceFrag(GetAllFragment())
             }
         }
     }
