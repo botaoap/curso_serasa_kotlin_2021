@@ -8,14 +8,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.serasa.fragmentviewmodel.R
 import com.serasa.fragmentviewmodel.genericsFragment.model.Carro
 import com.serasa.fragmentviewmodel.genericsFragment.model.Nome
+import com.serasa.fragmentviewmodel.genericsFragment.singleton.ListSingleton
 
 class AdapterGerenic<T> (val listOf : MutableList<T>): RecyclerView.Adapter<ItemListGenericHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemListGenericHolder {
-        val view = LayoutInflater.from(parent.context)
+        val viewNome = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_list_of_generic,parent,false)
-        return ItemListGenericHolder(view)
+        val viewCar = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_list_of_generic_car,parent,false)
+
+        if (listOf == ListSingleton.listOfNome) {
+            return ItemListGenericHolder(viewNome)
+        } else if (listOf == ListSingleton.listofCarro){
+            return ItemListGenericHolder(viewCar)
+        }else {
+            return return ItemListGenericHolder(viewNome)
+        }
     }
 
     override fun onBindViewHolder(holder: ItemListGenericHolder, position: Int) {
@@ -43,6 +53,9 @@ class ItemListGenericHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
             is Carro -> {
                 idTextView.text = genericListNome.id.toString()
                 nomeTextView.text = genericListNome.modelo
+                itemView.findViewById<TextView>(R.id.textViewAnoGeneric).apply {
+                    text = genericListNome.ano.toString()
+                }
             }
         }
     }
