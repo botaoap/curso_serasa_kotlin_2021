@@ -32,7 +32,6 @@ class DetailUserFragment : Fragment() {
     private lateinit var streetNameTextView: TextView
     private lateinit var numberNameTextView: TextView
     private lateinit var zipCodeNameTextView: TextView
-    private var user: User? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
