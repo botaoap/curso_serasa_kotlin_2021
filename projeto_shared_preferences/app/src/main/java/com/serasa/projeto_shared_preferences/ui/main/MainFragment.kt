@@ -17,11 +17,6 @@ import com.serasa.projeto_shared_preferences.R
 class MainFragment : Fragment() {
 
     private lateinit var preferences : SharedPreferences
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
     private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(
@@ -34,7 +29,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        preferences = requireActivity().getSharedPreferences("preferences_session", Context.MODE_PRIVATE)
+        preferences = requireActivity()?.getSharedPreferences("preferences_session", Context.MODE_PRIVATE)
         val inputEmail = view.findViewById<EditText>(R.id.editTextInputEmail)
 
         val emailSalvo = preferences.getString("chave_email", "")
