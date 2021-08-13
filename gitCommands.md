@@ -1,0 +1,23 @@
+## Commands
+- Versao do git
+    - git --version
+- Verifica qual branch vc esta
+    - git branch
+- Criar nova branch
+    - git checkout -b <nome_branch>
+- Mudar de branch
+    - git checkout <nome_branch>
+- Status do projeto
+    - git status
+- Adicionar todos os arquvivos alterados para comentar
+    - git add .
+- Comentar arquivos adicionados
+    - git commit -m "<message>"
+- Atualizar repositorio
+    - git pull
+- Manda arquivos alterados para o projeto
+    - git push
+- Atualizar projeto
+    - git pull origin <nome_branch>
+- Fazer merge com a branch
+    - git merge <nome_branch>
