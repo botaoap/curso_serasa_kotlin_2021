@@ -21,3 +21,5 @@
     - git pull origin <nome_branch>
 - Fazer merge com a branch
     - git merge <nome_branch>
+- Como usar token de autorizacao
+    - git <option> https://$(token_name)@github.com/user_name/repo_name.git
