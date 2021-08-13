@@ -1,7 +1,7 @@
 ## Trabalho 1 13/08/2021
 1. Git -> Criar Repositorio
     - Branchs
-        - Master
+        - Master/Main
         - Dev
 2. Activity
     - Usar no minimo 2 activities
