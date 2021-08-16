@@ -6,17 +6,20 @@
 - LottieFiles: [AQUI](https://lottiefiles.com)
 - LyfeCycle: [AQUI](https://developer.android.com/guide/components/activities/activity-lifecycle)
 - InputsStyles: [AQUI](https://medium.com/omisoft/textinputlayout-styling-8b36a5e0d73c)
-- Fake Store Api: [AQUI](https://fakestoreapi.com)
 - JWT Security: [AQUI](https://medium.com/@maison.moa/using-jwt-json-web-tokens-to-authorize-users-and-protect-api-routes-3e04a1453c3e)
-- Bottom navigation bar: [link](https://material.io/components/bottom-navigation/android#bottom-navigation-bar)
+- Bottom navigation bar: [AQUI](https://material.io/components/bottom-navigation/android#bottom-navigation-bar)
+- Connection Retrofit: [AQUI](https://medium.com/@alifyzfpires/consumindo-api-rest-com-retrofit-kotlin-no-android-abba52820cc)
 
 # Architecture
 - MVVM: [AQUI](https://developer.android.com/jetpack/guide?gclid=CjwKCAjwmeiIBhA6EiwA-uaeFa5QVkyirf5OOjQE1yIT2J8r1VYKKY24W7m-xgy87ERnEDXjeQ8BHxoCPNQQAvD_BwE&gclsrc=aw.ds)
 
 # Link Para Mac
 - Mac novo: [AQUI](https://www.youtube.com/watch?v=DfvsnMxCpsI)
-- Mac, e agora [AQUI](https://www.tecmundo.com.br/apple/2342-comprei-um-mac-e-agora-.htm)
+- Mac, e agora?: [AQUI](https://www.tecmundo.com.br/apple/2342-comprei-um-mac-e-agora-.htm)
 
 # API's
-- List Article API: [link](https://api.spaceflightnewsapi.net/v3/documentation#/) - [link2](https://spaceflightnewsapi.net)
-- Random Person API: [link](https://randomuser.me)
+- List Article API: [AQUI](https://api.spaceflightnewsapi.net/v3/documentation#/) ou [AQUI](https://spaceflightnewsapi.net)
+- Random Person API: [AQUI](https://randomuser.me)
+- Fake Store API: [AQUI](https://fakestoreapi.com)
+- GitHubPublic API's: [AQUI](https://github.com/public-apis/public-apis)
+- GitHub API: [AQUI](https://docs.github.com/pt/rest)
