@@ -9,24 +9,24 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel : ViewModel(), Callback<List<Article>> {
+class MainViewModel : ViewModel() {
 
     private val _article = MutableLiveData<List<Article>>()
     val articles: LiveData<List<Article>> = _article
 
+    private val _error = MutableLiveData<String>()
+    val error: LiveData<String> = _error
+
     private val repository = ArticleRepository()
 
     fun fetchArticle() {
-        repository.getArticle(this)
-    }
-
-    override fun onResponse(call: Call<List<Article>>, response: Response<List<Article>>) {
-        response.body()?.apply {
-            _article.value = this
+        repository.getArticle { list, error ->
+            list?.apply {
+                _article.value = this
+            }
+            error?.apply {
+                _error.value = this
+            }
         }
-    }
-
-    override fun onFailure(call: Call<List<Article>>, t: Throwable) {
-
     }
 }

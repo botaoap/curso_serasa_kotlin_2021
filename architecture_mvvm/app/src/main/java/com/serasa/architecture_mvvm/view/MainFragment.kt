@@ -8,6 +8,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
+import com.google.android.material.snackbar.Snackbar
 import com.serasa.architecture_mvvm.R
 import com.serasa.architecture_mvvm.adapter.AdapterArticle
 import com.serasa.architecture_mvvm.model.Article
@@ -29,6 +31,10 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         adapter.refresh(newList)
     }
 
+    private val errorObserver = Observer<String> { error ->
+        Snackbar.make(requireView(), error, Snackbar.LENGTH_LONG).show()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -38,6 +44,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         viewModel.articles.observe(viewLifecycleOwner, articleObserver)
+        viewModel.error.observe(viewLifecycleOwner, errorObserver)
         viewModel.fetchArticle()
 
     }
