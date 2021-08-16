@@ -19,5 +19,5 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 - Anotações Interessantes: [AQUI](anotacoes.md)
 - Links Interessantes: [AQUI](links.md)
 
-# About Git
+## About Git
 - Commands: [AQUI](gitCommands.md)
