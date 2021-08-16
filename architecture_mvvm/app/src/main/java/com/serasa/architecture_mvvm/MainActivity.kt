@@ -2,7 +2,7 @@ package com.serasa.architecture_mvvm
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.serasa.architecture_mvvm.ui.main.MainFragment
+import com.serasa.architecture_mvvm.view.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.serasa.architecture_mvvm.ui.main
+package com.serasa.architecture_mvvm.view_model
 
 import androidx.lifecycle.ViewModel
 

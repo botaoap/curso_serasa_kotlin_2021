@@ -1,4 +1,4 @@
-package com.serasa.architecture_mvvm.ui.main
+package com.serasa.architecture_mvvm.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.serasa.architecture_mvvm.R
+import com.serasa.architecture_mvvm.view_model.MainViewModel
 
 class MainFragment : Fragment() {
 
@@ -26,7 +27,9 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+
     }
+
+
 
 }
