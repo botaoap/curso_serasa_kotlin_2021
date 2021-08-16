@@ -3,6 +3,7 @@
     package="com.serasa.login_serasa">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -21,11 +22,7 @@
             android:name=".loginConsumindoApiWithToken.ui.LoginWithToken"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".loginConsumindoApi.ui.ExibindoListaApi"
@@ -34,10 +31,18 @@
         <activity
             android:name=".loginConsumindoApi.ui.LoginConsumindoApi"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
         <activity
             android:name=".conexoesApi.ui.LayoutApiActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".exercicioLoginSerasa.ui.ListaContaActivity"
             android:exported="true" />
