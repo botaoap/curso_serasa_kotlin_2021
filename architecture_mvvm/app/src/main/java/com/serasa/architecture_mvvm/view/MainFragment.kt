@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +19,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewmodel : MainViewModel
+    private lateinit var viewModel : MainViewModel
     private lateinit var articleRecyclerView: RecyclerView
     private var adapter = AdapterArticle {
 
@@ -37,9 +36,9 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         articleRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         articleRecyclerView.adapter = adapter
 
-        viewmodel = ViewModelProvider(this).get(MainViewModel::class.java)
-        viewmodel.articles.observe(viewLifecycleOwner, articleObserver)
-        viewmodel.fetchArticle()
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel.articles.observe(viewLifecycleOwner, articleObserver)
+        viewModel.fetchArticle()
 
     }
 
