@@ -1,4 +1,4 @@
-package com.serasa.firebase_with_mvvm.ui.main
+package com.serasa.firebase_with_mvvm.view_model
 
 import androidx.lifecycle.ViewModel
 

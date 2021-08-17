@@ -1,4 +1,4 @@
-package com.serasa.firebase_with_mvvm.ui.main
+package com.serasa.firebase_with_mvvm.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.serasa.firebase_with_mvvm.R
+import com.serasa.firebase_with_mvvm.view_model.MainViewModel
 
 class MainFragment : Fragment() {
 

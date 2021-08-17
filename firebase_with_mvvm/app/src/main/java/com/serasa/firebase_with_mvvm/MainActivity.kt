@@ -2,7 +2,7 @@ package com.serasa.firebase_with_mvvm
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.serasa.firebase_with_mvvm.ui.main.MainFragment
+import com.serasa.firebase_with_mvvm.view.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
