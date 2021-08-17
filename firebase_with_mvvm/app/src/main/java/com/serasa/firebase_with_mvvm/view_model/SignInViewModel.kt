@@ -1,6 +1,5 @@
 package com.serasa.firebase_with_mvvm.view_model
 
-import android.accounts.AuthenticatorException
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

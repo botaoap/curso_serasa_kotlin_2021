@@ -1,4 +1,4 @@
-package com.serasa.firebase_with_mvvm.extension
+package com.serasa.firebase_with_mvvm.utils
 
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment

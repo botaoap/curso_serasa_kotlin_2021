@@ -11,9 +11,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseUser
 import com.serasa.firebase_with_mvvm.MainActivity
 import com.serasa.firebase_with_mvvm.R
-import com.serasa.firebase_with_mvvm.extension.replaceView
+import com.serasa.firebase_with_mvvm.utils.replaceView
 import com.serasa.firebase_with_mvvm.view_model.SignInViewModel
-import java.security.cert.Extension
 
 class SignInFragment : Fragment(R.layout.sign_in_fragment) {
 
