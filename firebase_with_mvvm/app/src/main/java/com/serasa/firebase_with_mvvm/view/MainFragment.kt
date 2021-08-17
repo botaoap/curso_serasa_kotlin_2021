@@ -9,9 +9,8 @@ import android.widget.EditText
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseUser
-import com.serasa.firebase_with_mvvm.MainActivity
 import com.serasa.firebase_with_mvvm.R
-import com.serasa.firebase_with_mvvm.extension.replaceView
+import com.serasa.firebase_with_mvvm.utils.replaceView
 import com.serasa.firebase_with_mvvm.view_model.MainViewModel
 
 class MainFragment : Fragment(R.layout.main_fragment) {
