@@ -2,8 +2,9 @@ package com.serasa.firebase_with_mvvm
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import com.serasa.firebase_with_mvvm.view.MainFragment
+import com.google.firebase.auth.FirebaseAuth
+import com.serasa.firebase_with_mvvm.utils.replaceView
+import com.serasa.firebase_with_mvvm.view.ContentFragment
 import com.serasa.firebase_with_mvvm.view.SignInFragment
 
 class MainActivity : AppCompatActivity() {
@@ -11,17 +12,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, MainFragment.newInstance())
-            .commitNow()
 
-            replaceViewActivity(SignInFragment.newInstance())
-    }
+        if (FirebaseAuth.getInstance().currentUser != null){
+            replaceView(ContentFragment.newInstance())
+        }else {
+            replaceView(SignInFragment.newInstance())
+        }
 
-    fun replaceViewActivity(fragment : Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment)
-            .commit()
     }
 
 }
