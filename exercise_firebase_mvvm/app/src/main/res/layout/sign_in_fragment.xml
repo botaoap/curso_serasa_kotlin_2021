@@ -53,5 +53,19 @@
         android:layout_marginTop="@dimen/margin_top_sign_in"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/newAccountTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/criar_nova_conta_aqui"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
