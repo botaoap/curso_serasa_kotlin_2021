@@ -2,9 +2,6 @@ package com.serasa.exercise_firebase_mvvm.repository
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import javax.security.auth.callback.Callback
 
 class AuthenticationRepository {
 
@@ -34,6 +31,16 @@ class AuthenticationRepository {
         }
     }
 
+    fun createAccountWithEmailPassword(
+        email: String,
+        password: String,
+        callback: (FirebaseUser?) -> Unit
+    ) {
+        val task = auth.createUserWithEmailAndPassword(email, password)
+        task.addOnSuccessListener { authResult ->
+            callback(authResult.user)
+        }
 
+    }
 
 }
