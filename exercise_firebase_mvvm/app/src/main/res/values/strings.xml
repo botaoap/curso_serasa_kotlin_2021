@@ -13,4 +13,7 @@
     <string name="button_add">ADD</string>
     <string name="button_exclude">Exclude</string>
     <string name="sign_out">Sign Out</string>
+    <string name="uid">Uid</string>
+    <string name="upadate">Upadate</string>
+    <string name="delete">Delete</string>
 </resources>

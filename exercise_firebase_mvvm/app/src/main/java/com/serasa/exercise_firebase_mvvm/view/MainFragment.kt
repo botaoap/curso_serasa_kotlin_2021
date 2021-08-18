@@ -3,11 +3,17 @@ package com.serasa.exercise_firebase_mvvm.view
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseUser
 import com.serasa.exercise_firebase_mvvm.R
+import com.serasa.exercise_firebase_mvvm.adapter.AdapterCrud
+import com.serasa.exercise_firebase_mvvm.model.Bill
 import com.serasa.exercise_firebase_mvvm.repository.AuthenticationRepository
 import com.serasa.exercise_firebase_mvvm.utils.replaceView
 import com.serasa.exercise_firebase_mvvm.view_model.MainViewModel
@@ -19,16 +25,61 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     }
 
     private lateinit var viewModel: MainViewModel
-    private var auth = AuthenticationRepository()
+    private lateinit var recyclerView: RecyclerView
+    private val adapter = AdapterCrud()
+
+    private var observerBill = Observer<List<Bill>> {
+        adapter.refresh(it)
+    }
+
+    private var observerError = Observer<String> {
+
+    }
+
+    private var observerIsSignOut = Observer<Boolean> {isSignIn ->
+        if (!isSignIn) {
+            requireActivity().replaceView(SignInFragment.newInstance())
+        }
+    }
+
+    private var observerSignUser = Observer<FirebaseUser> {
+
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        view.findViewById<View>(R.id.imageViewArroBackToSignIn).setOnClickListener {
-            auth.signOut()
-            requireActivity().replaceView(SignInFragment.newInstance())
+        recyclerView = view.findViewById(R.id.recyclerViewListCrud)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
+
+        viewModel.error.observe(viewLifecycleOwner, observerError)
+        viewModel.user.observe(viewLifecycleOwner, observerSignUser)
+        viewModel.isSignedIn.observe(viewLifecycleOwner, observerIsSignOut)
+        viewModel.bill.observe(viewLifecycleOwner, observerBill)
+
+        viewModel.fetchBill()
+
+        view.findViewById<Button>(R.id.buttonAddList).setOnClickListener {
+            val inputName = view.findViewById<EditText>(R.id.textInputNameCrud)
+            val inputPrice = view.findViewById<EditText>(R.id.textInputPriceCrud)
+
+            if (!inputName.text.toString().isNullOrEmpty() && !inputPrice.text.toString().isNullOrEmpty()) {
+                viewModel.addBill(
+                    inputName.text.toString(),
+                    inputPrice.text.toString().toDoubleOrNull()
+                )
+            }
         }
+
+        view.findViewById<View>(R.id.imageViewGoBackToSignIn).setOnClickListener {
+            viewModel.signOut()
+        }
+
+
     }
 
 }

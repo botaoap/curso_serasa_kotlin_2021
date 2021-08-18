@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.DetailListFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="@dimen/margin_top_sign_in"
+        app:cardCornerRadius="@dimen/margin_top_sign_in"
+        android:layout_margin="@dimen/margin_top_sign_in">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageViewDetailArrowback"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_arrow_back"
+                android:layout_margin="@dimen/margin_top_sign_in"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:id="@+id/imageViewDetailItem"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_shopify"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/margin_top_sign_in"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/buttonDetailUpdate"
+                app:layout_constraintTop_toBottomOf="@id/imageViewDetailItem">
+
+                <TextView
+                    android:id="@+id/textViewDetailUid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:layout_margin="@dimen/margin_top_sign_in"
+                    tools:text="@string/uid" />
+                <TextView
+                    android:id="@+id/textViewDetailName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:layout_margin="@dimen/margin_top_sign_in"
+                    tools:text="@string/name" />
+                <TextView
+                    android:id="@+id/textViewDetailPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="italic"
+                    android:textAlignment="textEnd"
+                    android:layout_margin="@dimen/margin_top_sign_in"
+                    tools:text="@string/price" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonDetailUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/upadate"
+                android:layout_margin="@dimen/margin_top_sign_in"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonDetailDelete"
+                style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+            <Button
+                android:id="@+id/buttonDetailDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete"
+                android:layout_margin="@dimen/margin_top_sign_in"
+                app:layout_constraintStart_toEndOf="@id/buttonDetailUpdate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
