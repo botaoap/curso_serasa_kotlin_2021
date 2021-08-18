@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseUser
 import com.serasa.exercise_firebase_mvvm.R
+import com.serasa.exercise_firebase_mvvm.utils.hideKeyboard
 import com.serasa.exercise_firebase_mvvm.utils.replaceView
 import com.serasa.exercise_firebase_mvvm.view_model.SignInViewModel
 
@@ -26,6 +27,7 @@ class SignInFragment : Fragment(R.layout.sign_in_fragment) {
     }
 
     private val observerError = Observer<String?> {
+        requireActivity().hideKeyboard()
         Snackbar.make(requireView(), it, Snackbar.LENGTH_LONG).show()
     }
 
