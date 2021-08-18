@@ -7,4 +7,10 @@
     <string name="sign_up">Sign Up</string>
     <string name="title_sign_up">Sign Up</string>
     <string name="criar_nova_conta_aqui">Criar nova conta aqui!</string>
+    <string name="name">Name</string>
+    <string name="price">Price</string>
+    <string name="list_of_crud">List of CRUD</string>
+    <string name="button_add">ADD</string>
+    <string name="button_exclude">Exclude</string>
+    <string name="sign_out">Sign Out</string>
 </resources>
