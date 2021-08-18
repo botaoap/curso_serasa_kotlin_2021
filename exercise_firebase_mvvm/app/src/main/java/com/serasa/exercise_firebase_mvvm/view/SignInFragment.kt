@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseUser
 import com.serasa.exercise_firebase_mvvm.R
 import com.serasa.exercise_firebase_mvvm.utils.replaceView
@@ -21,11 +22,11 @@ class SignInFragment : Fragment(R.layout.sign_in_fragment) {
     private lateinit var viewModel: SignInViewModel
 
     private val observerUser = Observer<FirebaseUser?> {
-
+        requireActivity().replaceView(MainFragment.newInstance())
     }
 
     private val observerError = Observer<String?> {
-
+        Snackbar.make(requireView(), it, Snackbar.LENGTH_LONG).show()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,7 +51,7 @@ class SignInFragment : Fragment(R.layout.sign_in_fragment) {
                 )
             }
         }
-        
+
         view.findViewById<View>(R.id.newAccountTextView).setOnClickListener {
             requireActivity().replaceView(SignUpFragment.newInstance())
         }
