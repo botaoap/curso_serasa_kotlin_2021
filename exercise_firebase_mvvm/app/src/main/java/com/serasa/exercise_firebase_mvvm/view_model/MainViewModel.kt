@@ -3,7 +3,6 @@ package com.serasa.exercise_firebase_mvvm.view_model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
 import com.google.firebase.auth.FirebaseUser
 import com.serasa.exercise_firebase_mvvm.model.Bill
 import com.serasa.exercise_firebase_mvvm.repository.AuthenticationRepository

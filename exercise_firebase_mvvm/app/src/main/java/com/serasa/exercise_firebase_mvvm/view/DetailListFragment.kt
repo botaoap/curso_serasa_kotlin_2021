@@ -5,11 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.serasa.exercise_firebase_mvvm.R
+import com.serasa.exercise_firebase_mvvm.databinding.DetailListFragmentBinding
 import com.serasa.exercise_firebase_mvvm.model.Bill
 import com.serasa.exercise_firebase_mvvm.utils.replaceView
 import com.serasa.exercise_firebase_mvvm.view_model.DetailListViewModel
@@ -20,19 +18,13 @@ class DetailListFragment : Fragment(R.layout.detail_list_fragment) {
         fun newInstance() = DetailListFragment()
     }
 
+    private lateinit var binding: DetailListFragmentBinding
     private lateinit var viewModel: DetailListViewModel
-    private lateinit var uidTextView: TextView
-    private lateinit var nameTextView: TextView
-    private lateinit var priceTextView: TextView
-    private lateinit var nameEditText: EditText
-    private lateinit var priceEditText: EditText
-    private lateinit var buttonSave: Button
-    private lateinit var buttonUpdate: Button
     private var billTeste : Bill? = null
     private var uidPutString: String? = null
 
     private val observerUid = Observer<String> {
-        uidPutString
+
     }
 
     private val observerOndeBill = Observer<Bill> {
@@ -41,7 +33,7 @@ class DetailListFragment : Fragment(R.layout.detail_list_fragment) {
     }
 
     private val observerDelete = Observer<Boolean> {
-        uidPutString
+
     }
 
     private val observerUpdate = Observer<Boolean> {
@@ -59,9 +51,9 @@ class DetailListFragment : Fragment(R.layout.detail_list_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loadViewModel(view)
+        binding = DetailListFragmentBinding.bind(view)
 
-        loadComponents(view)
+        loadViewModel(view)
 
         view.findViewById<View>(R.id.imageViewDetailArrowback).setOnClickListener {
             requireActivity().replaceView(MainFragment.newInstance())
@@ -70,6 +62,9 @@ class DetailListFragment : Fragment(R.layout.detail_list_fragment) {
     }
 
     fun loadViewModel(view: View) {
+
+
+
         viewModel = ViewModelProvider(this).get(DetailListViewModel::class.java)
 
         viewModel.uid.observe(viewLifecycleOwner, observerUid)
@@ -79,26 +74,25 @@ class DetailListFragment : Fragment(R.layout.detail_list_fragment) {
         viewModel.fetchOneBill(uidPutString!!)
         viewModel.fetchBillOndeId(uidPutString!!)
 
-        view.findViewById<Button>(R.id.buttonDetailDelete).setOnClickListener {
+        binding.buttonDetailDelete.setOnClickListener {
             viewModel.deleteBill(uidPutString!!)
             requireActivity().replaceView(MainFragment.newInstance())
         }
 
-        view.findViewById<Button>(R.id.buttonDetailUpdate).setOnClickListener {
-            nameEditText.visibility = View.VISIBLE
-            priceEditText.visibility = View.VISIBLE
-            buttonSave.visibility = View.VISIBLE
-            nameTextView.visibility = View.INVISIBLE
-            priceTextView.visibility = View.INVISIBLE
-            buttonUpdate.visibility = View.INVISIBLE
+        binding.buttonDetailUpdate.setOnClickListener {
+            binding.editTextDetailName.visibility = View.VISIBLE
+            binding.editTextDetailPrice.visibility = View.VISIBLE
+            binding.buttonDetailSave.visibility = View.VISIBLE
+            binding.textViewDetailName.visibility = View.INVISIBLE
+            binding.textViewDetailPrice.visibility = View.INVISIBLE
+            binding.buttonDetailUpdate.visibility = View.INVISIBLE
 
 
         }
 
-        view.findViewById<Button>(R.id.buttonDetailSave).setOnClickListener {
-
-            billTeste?.name = nameEditText.text.toString()
-            billTeste?.price = priceEditText.text.toString().toDouble()
+        binding.buttonDetailSave.setOnClickListener {
+            billTeste?.name = binding.editTextDetailName.text.toString()
+            billTeste?.price = binding.editTextDetailPrice.text.toString().toDouble()
 
             viewModel.updateBill(billTeste!!)
             requireActivity().replaceView(MainFragment.newInstance())
@@ -106,22 +100,12 @@ class DetailListFragment : Fragment(R.layout.detail_list_fragment) {
 
     }
 
-    fun loadComponents(view: View) {
-        uidTextView = view.findViewById(R.id.textViewDetailUid)
-        nameTextView = view.findViewById(R.id.textViewDetailName)
-        priceTextView = view.findViewById(R.id.textViewDetailPrice)
-        nameEditText = view.findViewById(R.id.editTextDetailName)
-        priceEditText = view.findViewById(R.id.editTextDetailPrice)
-        buttonSave = view.findViewById(R.id.buttonDetailSave)
-        buttonUpdate = view.findViewById(R.id.buttonDetailUpdate)
-    }
-
     fun bind(bill: Bill) {
-        uidTextView.text = bill.uid
-        nameTextView.text = bill.name
-        priceTextView.text = "R$ ${bill.price.toString()}"
-        nameEditText.setText(bill.name)
-        priceEditText.setText(bill.price.toString())
+        binding.textViewDetailUid.text = bill.uid
+        binding.textViewDetailName.text = bill.name
+        binding.textViewDetailPrice.text = "R$ ${bill.price.toString()}"
+        binding.editTextDetailName.setHint(bill.name)
+        binding.editTextDetailPrice.setHint(bill.price.toString())
     }
 
 }

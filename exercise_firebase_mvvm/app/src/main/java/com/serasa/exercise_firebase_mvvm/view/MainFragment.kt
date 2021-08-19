@@ -4,15 +4,13 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseUser
 import com.serasa.exercise_firebase_mvvm.R
 import com.serasa.exercise_firebase_mvvm.adapter.AdapterCrud
+import com.serasa.exercise_firebase_mvvm.databinding.MainFragmentBinding
 import com.serasa.exercise_firebase_mvvm.model.Bill
 import com.serasa.exercise_firebase_mvvm.repository.AuthenticationRepository
 import com.serasa.exercise_firebase_mvvm.utils.hideKeyboard
@@ -25,6 +23,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         fun newInstance() = MainFragment()
     }
 
+    private lateinit var binding: MainFragmentBinding
     private lateinit var viewModel: MainViewModel
     private lateinit var recyclerView: RecyclerView
     private val adapter = AdapterCrud { bill ->
@@ -65,9 +64,11 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding = MainFragmentBinding.bind(view)
+
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        recyclerView = view.findViewById(R.id.recyclerViewListCrud)
+        recyclerView = binding.recyclerViewListCrud
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 
@@ -78,23 +79,25 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
         viewModel.fetchBill()
 
-        view.findViewById<Button>(R.id.buttonAddList).setOnClickListener {
+        binding.buttonAddList.setOnClickListener {
             requireActivity().hideKeyboard()
-            val inputName = view.findViewById<EditText>(R.id.textInputNameCrud)
-            val inputPrice = view.findViewById<EditText>(R.id.textInputPriceCrud)
 
-            if (!inputName.text.toString().isNullOrEmpty() && !inputPrice.text.toString()
-                    .isNullOrEmpty()
+            if (!binding.textInputNameCrud.text.toString().isNullOrEmpty() &&
+                !binding.textInputPriceCrud.text.toString().isNullOrEmpty()
             ) {
                 viewModel.addBill(
-                    inputName.text.toString(),
-                    inputPrice.text.toString().toDoubleOrNull()
+                    binding.textInputNameCrud.text.toString(),
+                    binding.textInputPriceCrud.text.toString().toDoubleOrNull()
                 )
             }
+            binding.textInputNameCrud.setText("")
+            binding.textInputPriceCrud.setText("")
+            binding.textInputNameCrud.requestFocus()
+
 
         }
 
-        view.findViewById<View>(R.id.imageViewGoBackToSignIn).setOnClickListener {
+        binding.imageViewGoBackToSignIn.setOnClickListener {
             viewModel.signOut()
         }
 
