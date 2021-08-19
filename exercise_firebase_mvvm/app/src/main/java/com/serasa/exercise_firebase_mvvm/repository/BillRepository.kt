@@ -1,5 +1,7 @@
 package com.serasa.exercise_firebase_mvvm.repository
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.serasa.exercise_firebase_mvvm.model.Bill
@@ -30,7 +32,7 @@ class BillRepository {
         dataBase.collection(BILL_COLLECTION)
             .add(bill)
             .addOnSuccessListener {
-                Bill.fromDocument(it).apply {
+                bill.apply {
                     callback(this,null)
                 }
             }
@@ -40,7 +42,21 @@ class BillRepository {
             }
     }
 
-    fun removeBill(uid: String, callback: (Boolean) -> Unit) {
+    fun fetchOneBill(uid: String, callback: (Bill?, String?) -> Unit) {
+    dataBase.collection(BILL_COLLECTION)
+        .document(uid)
+        .get()
+        .addOnSuccessListener { document ->
+            Bill.fromDocument(document).apply {
+                callback(this, null)
+            }
+        }
+        .addOnFailureListener { exception ->
+            callback(null, exception.message)
+        }
+    }
+
+    fun deleteBill(uid: String, callback: (Boolean) -> Unit) {
         dataBase.collection(BILL_COLLECTION)
             .document(uid)
             .delete()
@@ -49,6 +65,19 @@ class BillRepository {
             }
             .addOnFailureListener {
                 callback(false)
+            }
+    }
+
+    fun updateBill(bill: Bill, callback: (Bill?, String?) -> Unit) {
+        dataBase.collection(BILL_COLLECTION)
+            .document(bill.uid.toString())
+            .set(bill)
+            .addOnSuccessListener {
+                Log.d(TAG,"Document Updated")
+            }
+            .addOnFailureListener { error ->
+
+                Log.w(TAG, "Failure updated", error)
             }
     }
 }

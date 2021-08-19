@@ -43,9 +43,6 @@ class AuthenticationRepository {
 
     }
 
-    fun addBill() {
-        
-    }
 
     fun signOut() {
         auth.signOut()

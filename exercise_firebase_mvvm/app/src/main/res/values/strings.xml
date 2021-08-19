@@ -16,4 +16,5 @@
     <string name="uid">Uid</string>
     <string name="upadate">Upadate</string>
     <string name="delete">Delete</string>
+    <string name="save">Save</string>
 </resources>

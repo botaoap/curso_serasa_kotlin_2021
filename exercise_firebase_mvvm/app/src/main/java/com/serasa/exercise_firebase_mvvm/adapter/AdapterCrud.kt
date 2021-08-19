@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.serasa.exercise_firebase_mvvm.R
 import com.serasa.exercise_firebase_mvvm.model.Bill
 
-class AdapterCrud : RecyclerView.Adapter<ItemCrudViewHolder>(){
+class AdapterCrud(val onClick: (Bill?) -> Unit) : RecyclerView.Adapter<ItemCrudViewHolder>(){
 
     private var listOfCrud: MutableList<Bill> = mutableListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemCrudViewHolder {
@@ -20,6 +20,7 @@ class AdapterCrud : RecyclerView.Adapter<ItemCrudViewHolder>(){
     override fun onBindViewHolder(holder: ItemCrudViewHolder, position: Int) {
         listOfCrud[position].apply {
             holder.bind(this)
+            holder.itemView.setOnClickListener { onClick(this) }
         }
     }
 
@@ -39,7 +40,7 @@ class ItemCrudViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(bill : Bill) {
         setData(bill.uid, R.id.textViewUidCrud)
         setData(bill.name, R.id.textViewNameCrud)
-        setData(bill.price.toString(), R.id.textViewPriceCrud)
+        setData("R$ ${bill.price.toString()}", R.id.textViewPriceCrud)
     }
 
     fun setData(value: String?, @IdRes componentId: Int) {
