@@ -20,8 +20,8 @@ class DetailListFragment : Fragment(R.layout.detail_list_fragment) {
 
     private lateinit var binding: DetailListFragmentBinding
     private lateinit var viewModel: DetailListViewModel
-    private var billTeste : Bill? = null
-    private var uidPutString: String? = null
+    private lateinit var billTeste : Bill
+    private var uidPutString = String()
 
     private val observerUid = Observer<String> {
 
@@ -51,6 +51,7 @@ class DetailListFragment : Fragment(R.layout.detail_list_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         binding = DetailListFragmentBinding.bind(view)
 
         loadViewModel(view)
@@ -71,11 +72,11 @@ class DetailListFragment : Fragment(R.layout.detail_list_fragment) {
         viewModel.bill.observe(viewLifecycleOwner, observerOndeBill)
         viewModel.delete.observe(viewLifecycleOwner, observerDelete)
 
-        viewModel.fetchOneBill(uidPutString!!)
-        viewModel.fetchBillOndeId(uidPutString!!)
+        viewModel.fetchOneBill(uidPutString)
+        viewModel.fetchBillOndeId(uidPutString)
 
         binding.buttonDetailDelete.setOnClickListener {
-            viewModel.deleteBill(uidPutString!!)
+            viewModel.deleteBill(uidPutString)
             requireActivity().replaceView(MainFragment.newInstance())
         }
 
@@ -91,10 +92,12 @@ class DetailListFragment : Fragment(R.layout.detail_list_fragment) {
         }
 
         binding.buttonDetailSave.setOnClickListener {
-            billTeste?.name = binding.editTextDetailName.text.toString()
-            billTeste?.price = binding.editTextDetailPrice.text.toString().toDouble()
 
-            viewModel.updateBill(billTeste!!)
+            billTeste.name = binding.editTextDetailName.text.toString()
+            billTeste.price = binding.editTextDetailPrice.text.toString().toDouble()
+
+
+            viewModel.updateBill(billTeste)
             requireActivity().replaceView(MainFragment.newInstance())
         }
 

@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import androidx.core.content.contentValuesOf
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +14,6 @@ import com.serasa.exercise_firebase_mvvm.ViewPagerActivity
 import com.serasa.exercise_firebase_mvvm.adapter.AdapterCrud
 import com.serasa.exercise_firebase_mvvm.databinding.MainFragmentBinding
 import com.serasa.exercise_firebase_mvvm.model.Bill
-import com.serasa.exercise_firebase_mvvm.repository.AuthenticationRepository
 import com.serasa.exercise_firebase_mvvm.utils.hideKeyboard
 import com.serasa.exercise_firebase_mvvm.utils.replaceView
 import com.serasa.exercise_firebase_mvvm.view_model.MainViewModel
@@ -90,7 +88,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             ) {
                 viewModel.addBill(
                     binding.textInputNameCrud.text.toString(),
-                    binding.textInputPriceCrud.text.toString().toDoubleOrNull()
+                    binding.textInputPriceCrud.text.toString().toDouble()
                 )
             }
             binding.textInputNameCrud.setText("")
@@ -107,7 +105,9 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         binding.buttonViewPage.setOnClickListener {
             Intent(context, ViewPagerActivity::class.java).apply {
                 startActivity(this)
+
             }
+
         }
 
     }

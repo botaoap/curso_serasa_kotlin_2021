@@ -17,5 +17,5 @@
     <string name="upadate">Upadate</string>
     <string name="delete">Delete</string>
     <string name="save">Save</string>
-    <string name="button_view_page">View PAGE</string>
+    <string name="button_view_page">View Pager</string>
 </resources>

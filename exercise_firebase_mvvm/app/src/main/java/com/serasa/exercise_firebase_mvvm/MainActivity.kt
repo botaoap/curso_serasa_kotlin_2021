@@ -16,16 +16,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
-                .commitNow()
-
-            if (auth.currentUser() != null) {
-                replaceView(MainFragment.newInstance())
-            } else {
-                replaceView(SignInFragment.newInstance())
-            }
+        if (auth.currentUser() != null) {
+            replaceView(MainFragment.newInstance())
+        } else {
+            replaceView(SignInFragment.newInstance())
         }
     }
 }

@@ -36,8 +36,8 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun addBill(name: String, price: Double?) {
-        Bill(null, name, price).apply {
+    fun addBill(name: String, price: Double) {
+        Bill(uid = "",name = name,price = price).apply {
             billRepository.addBill(this) {bill, error ->
                 if (error != null) {
                     _error.value = error
