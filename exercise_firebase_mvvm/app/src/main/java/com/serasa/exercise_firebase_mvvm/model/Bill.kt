@@ -6,9 +6,24 @@ import com.google.firebase.firestore.QueryDocumentSnapshot
 
 data class Bill(
     val uid: String?,
-    var name: String?,
-    var price: Double?
+    val name: String?,
+    val price: Double?
 ) {
+
+    fun validarBill() : Boolean{
+
+        if (price == null) {
+            return false
+        }
+
+        if (price < 0) {
+            return false
+        }
+
+
+        return true
+    }
+
     companion object {
         fun fromData(snapshot: QueryDocumentSnapshot): Bill {
             return Bill(
