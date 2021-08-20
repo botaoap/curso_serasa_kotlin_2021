@@ -24,3 +24,6 @@
 - Fake Store API: [AQUI](https://fakestoreapi.com)
 - GitHubPublic API's: [AQUI](https://github.com/public-apis/public-apis)
 - GitHub API: [AQUI](https://docs.github.com/pt/rest)
+
+# Git branching model
+- Git Flow: [AQUI](https://nvie.com/posts/a-successful-git-branching-model/)
