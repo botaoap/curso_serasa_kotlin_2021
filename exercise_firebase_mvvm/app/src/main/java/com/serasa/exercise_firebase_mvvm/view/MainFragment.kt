@@ -1,14 +1,17 @@
 package com.serasa.exercise_firebase_mvvm.view
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.core.content.contentValuesOf
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseUser
 import com.serasa.exercise_firebase_mvvm.R
+import com.serasa.exercise_firebase_mvvm.ViewPagerActivity
 import com.serasa.exercise_firebase_mvvm.adapter.AdapterCrud
 import com.serasa.exercise_firebase_mvvm.databinding.MainFragmentBinding
 import com.serasa.exercise_firebase_mvvm.model.Bill
@@ -101,6 +104,11 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             viewModel.signOut()
         }
 
+        binding.buttonViewPage.setOnClickListener {
+            Intent(context, ViewPagerActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
 
     }
 

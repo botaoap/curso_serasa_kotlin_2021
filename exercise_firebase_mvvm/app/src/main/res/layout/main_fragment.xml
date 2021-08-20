@@ -81,11 +81,25 @@
         android:layout_margin="@dimen/margin_top_sign_in"
         android:text="@string/button_add"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/buttonViewPage"
+        app:layout_constraintTop_toBottomOf="@+id/textFieldPrice"
+        app:layout_constraintHorizontal_weight="1"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        />
+
+    <Button
+        android:id="@+id/buttonViewPage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_top_sign_in"
+        android:text="@string/button_view_page"
+        app:layout_constraintStart_toEndOf="@id/buttonAddList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textFieldPrice"
         app:layout_constraintHorizontal_weight="1"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewListCrud"
