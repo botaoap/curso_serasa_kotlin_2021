@@ -1,17 +1,19 @@
 package com.serasa.exercise_firebase_mvvm.adapter
 
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.serasa.exercise_firebase_mvvm.view.DetailListFragment
+import com.google.geo.type.Viewport
+import com.serasa.exercise_firebase_mvvm.view.*
 
 class AdapterViewPager(
     fm: FragmentManager
 ) : FragmentPagerAdapter(fm) {
 
     private val lisfOfFrags = listOf<Fragment>(
-        DetailListFragment.newInstance(),
-        DetailListFragment.newInstance()
+        ViewPagerFragment.newInstance()
+
     )
 
     override fun getItem(position: Int): Fragment {
