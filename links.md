@@ -10,6 +10,8 @@
 - Bottom navigation bar: [AQUI](https://material.io/components/bottom-navigation/android#bottom-navigation-bar)
 - Connection Retrofit: [AQUI](https://medium.com/@alifyzfpires/consumindo-api-rest-com-retrofit-kotlin-no-android-abba52820cc)
 - Connection Glide: [AQUI](https://github.com/bumptech/glide)
+- DevChallenge: [AQUI](https://www.devchallenge.com.br/challenges)
+- Butter Knife: [AQUI](https://jakewharton.github.io/butterknife/)
 
 # Architecture
 - MVVM: [AQUI](https://developer.android.com/jetpack/guide?gclid=CjwKCAjwmeiIBhA6EiwA-uaeFa5QVkyirf5OOjQE1yIT2J8r1VYKKY24W7m-xgy87ERnEDXjeQ8BHxoCPNQQAvD_BwE&gclsrc=aw.ds)
@@ -27,6 +29,3 @@
 
 # Git branching model
 - Git Flow: [AQUI](https://nvie.com/posts/a-successful-git-branching-model/)
-
-# Challenge Mobile
-- DevChallenge: [AQUI](https://www.devchallenge.com.br/challenges)
