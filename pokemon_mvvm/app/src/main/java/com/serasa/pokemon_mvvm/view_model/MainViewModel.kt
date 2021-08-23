@@ -1,4 +1,4 @@
-package com.serasa.pokemon_mvvm.ui.main
+package com.serasa.pokemon_mvvm.view_model
 
 import androidx.lifecycle.ViewModel
 

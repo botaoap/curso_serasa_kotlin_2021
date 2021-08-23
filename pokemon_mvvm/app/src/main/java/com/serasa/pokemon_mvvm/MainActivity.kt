@@ -2,7 +2,7 @@ package com.serasa.pokemon_mvvm
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.serasa.pokemon_mvvm.ui.main.MainFragment
+import com.serasa.pokemon_mvvm.view.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

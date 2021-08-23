@@ -1,4 +1,4 @@
-package com.serasa.pokemon_mvvm.ui.main
+package com.serasa.pokemon_mvvm.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.serasa.pokemon_mvvm.R
+import com.serasa.pokemon_mvvm.view_model.MainViewModel
 
 class MainFragment : Fragment() {
 
