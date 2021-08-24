@@ -10,7 +10,7 @@ import com.serasa.pokemon_mvvm.repository.PokemonRepository
 class MainViewModel : ViewModel() {
 
     private val _pokeResponse = MutableLiveData<List<Pokemon>>()
-    var pokemonResponse: LiveData<List<Pokemon>> = _pokeResponse
+    var pokeResponse: LiveData<List<Pokemon>> = _pokeResponse
 
     private val _error = MutableLiveData<String>()
     var error: LiveData<String> = _error
