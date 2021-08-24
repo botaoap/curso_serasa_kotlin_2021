@@ -2,6 +2,8 @@ package com.serasa.pokemon_mvvm.adapter
 
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -48,6 +50,31 @@ class ItemPokemonViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             Glide.with(itemView.context)
                 .load(it.sprites.other.artWork?.image)
                 .into(binding.imageViewAvatarPokemon)
+
+            it.types[0].type.extractColor().apply {
+                binding.cardViewPokemon.setCardBackgroundColor(itemView.context.getColor(this.bgcolor))
+                binding.cardViewDetailPokemon.setCardBackgroundColor(itemView.context.getColor(this.typeColor))
+                binding.textViewDetailPokemon.setText(it.types[0].type.typeName.capitalize())
+                Glide.with(itemView.context)
+                    .load(this.typeIcon)
+                    .into(binding.imageViewDetailPokemon)
+                if (it.types.size > 1) {
+                    it.types[1].type.extractColor().apply {
+                        binding.cardViewDetail2Pokemon.visibility = VISIBLE
+                        binding.cardViewDetail2Pokemon.setCardBackgroundColor(
+                            itemView.context.getColor(
+                                this.typeColor
+                            )
+                        )
+                        binding.textViewDetail2Pokemon.setText(it.types[1].type.typeName.capitalize())
+                        Glide.with(itemView.context)
+                            .load(this.typeIcon)
+                            .into(binding.imageViewDetail2Pokemon)
+                    }
+                }else {
+                    binding.cardViewDetail2Pokemon.visibility = GONE
+                }
+            }
         }
     }
 }

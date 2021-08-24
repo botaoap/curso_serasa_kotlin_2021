@@ -1,16 +1,18 @@
 package com.serasa.pokemon_mvvm.database
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.serasa.pokemon_mvvm.database.dao.PokemonDAO
 import com.serasa.pokemon_mvvm.model.*
 
 @Database(
-    entities = [Pokemon::class, PokemonDetails::class, Sprites::class, Other::class, ArtWork::class],
+    entities = [
+        Pokemon::class, PokemonDetails::class, Sprites::class, Other::class, ArtWork::class,
+        Types::class, PokemonType::class
+    ],
     version = 1
 )
+@TypeConverters(Converters::class)
 abstract class AppDataBase : RoomDatabase() {
 
     abstract fun pokemonDAO(): PokemonDAO

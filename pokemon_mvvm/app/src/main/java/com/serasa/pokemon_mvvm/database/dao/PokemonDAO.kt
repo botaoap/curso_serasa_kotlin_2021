@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.serasa.pokemon_mvvm.model.Pokemon
+import com.serasa.pokemon_mvvm.model.Types
 
 @Dao
 interface PokemonDAO {
@@ -17,4 +18,7 @@ interface PokemonDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(pokemon: Pokemon)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertType(types: List<Types>)
 }
