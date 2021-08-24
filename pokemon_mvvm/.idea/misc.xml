@@ -9,8 +9,9 @@
         <entry key="app/src/main/res/drawable/ic_pokeball_background.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/drawable/ic_search_field_background.xml" value="0.2898148148148148" />
         <entry key="app/src/main/res/drawable/ic_search_field_foreground.xml" value="0.2898148148148148" />
-        <entry key="app/src/main/res/layout/item_pokemon_list.xml" value="0.5065913370998116" />
-        <entry key="app/src/main/res/layout/main_fragment.xml" value="0.28804347826086957" />
+        <entry key="app/src/main/res/drawable/search_color.xml" value="0.2111111111111111" />
+        <entry key="app/src/main/res/layout/item_pokemon_list.xml" value="0.34782608695652173" />
+        <entry key="app/src/main/res/layout/main_fragment.xml" value="0.30177514792899407" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2898148148148148" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2898148148148148" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_pokeball.xml" value="0.2898148148148148" />
