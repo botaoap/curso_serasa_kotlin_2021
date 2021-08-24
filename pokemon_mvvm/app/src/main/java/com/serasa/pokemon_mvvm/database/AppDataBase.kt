@@ -5,9 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.serasa.pokemon_mvvm.database.dao.PokemonDAO
-import com.serasa.pokemon_mvvm.model.Pokemon
+import com.serasa.pokemon_mvvm.model.*
 
-@Database(entities = [Pokemon::class], version = 1)
+@Database(
+    entities = [Pokemon::class, PokemonDetails::class, Sprites::class, Other::class, ArtWork::class],
+    version = 1
+)
 abstract class AppDataBase : RoomDatabase() {
 
     abstract fun pokemonDAO(): PokemonDAO

@@ -17,17 +17,26 @@ class MainViewModel : ViewModel() {
 
 //    private val pokemonRepository = PokemonRepository()
 
-    fun fetchAllFromServer(context: Context) {
-
+    private fun fetchAllFromServer(context: Context) {
         val repository = PokemonRepository(context)
-
         repository.fetchAll { response, error ->
             response?.let {
                 _pokeResponse.value = it.results
-                repository.insertIntoDataBase(it.results)
+                loadDetails(it.results, repository)
             }
             error?.let {
                 _error.value = it
+            }
+        }
+    }
+
+    private fun loadDetails(pokemon: List<Pokemon>, repository: PokemonRepository) {
+        pokemon.forEach { poke ->
+            repository.fetchPokemonDetail(pokeId = poke.extracIfFromUrl()) { detail, _ ->
+                detail.let {
+                    poke.details = detail
+                    repository.insertIntoDataBase(poke)
+                }
             }
         }
     }

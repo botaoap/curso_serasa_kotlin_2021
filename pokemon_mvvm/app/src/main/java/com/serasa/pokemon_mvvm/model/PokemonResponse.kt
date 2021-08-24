@@ -24,7 +24,7 @@ data class Pokemon(
     val url: String,
 
     @Embedded
-    val details: PokemonDetails?
+    var details: PokemonDetails?
 ) {
     fun extracIfFromUrl(withPads: Boolean = false): String {
 
