@@ -96,17 +96,18 @@ data class PokemonType(
             "ghost" -> relatedTypes.GHOST
             "normal" -> relatedTypes.NORMAL
             "dark" -> relatedTypes.DARK
-            "figthing" -> relatedTypes.FIGTHING
+            "fighting" -> relatedTypes.FIGTHING
             "grass" -> relatedTypes.GRASS
             "poison" -> relatedTypes.POISON
             "dragon" -> relatedTypes.DRAGON
             "fire" -> relatedTypes.FIRE
             "ground" -> relatedTypes.GROUND
             "psychic" -> relatedTypes.PSYCHIC
-            "eletric" -> relatedTypes.ELETRIC
+            "electric" -> relatedTypes.ELETRIC
             "flying" -> relatedTypes.FLYING
             "ice" -> relatedTypes.ICE
             "rock" -> relatedTypes.ROCK
+            "steel" -> relatedTypes.STEEL
             else -> relatedTypes.NORMAL
         }
     }
@@ -130,5 +131,6 @@ enum class relatedTypes(val bgcolor: Int, val typeColor: Int, val typeIcon: Int 
     FAIRY(R.color.bg_type_fairy, R.color.type_fairy, R.drawable.ic_fairy),
     WATER(R.color.bg_type_water, R.color.type_water, R.drawable.ic_water),
     BUG(R.color.bg_type_bug, R.color.type_bug, R.drawable.ic_bug),
+    STEEL(R.color.bg_type_steel, R.color.type_steel, R.drawable.ic_steel)
 }
 

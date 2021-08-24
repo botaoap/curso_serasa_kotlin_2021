@@ -40,7 +40,6 @@ class PokemonRepository(private val context: Context) {
     fun fetchPokemonDetail(pokeId: String, onComplete: (PokemonDetails?, String?) -> Unit) {
         GetApi.getPokeApiService()
             .getPokemonId(pokeId)
-            .clone()
             .enqueue(object : Callback<PokemonDetails>{
                 override fun onResponse(
                     call: Call<PokemonDetails>,
