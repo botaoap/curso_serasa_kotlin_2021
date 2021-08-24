@@ -46,4 +46,5 @@
     <color name="type_flying">#748FC9</color>
     <color name="type_ice">#61CEC0</color>
     <color name="type_rock">#BAAB82</color>
+    <color name="type_eletric">#EED535</color>
 </resources>

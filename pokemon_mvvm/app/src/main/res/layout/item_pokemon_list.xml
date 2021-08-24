@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="150dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -12,7 +12,7 @@
         android:src="@drawable/ic_launcher_background"
         android:elevation="5dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -22,15 +22,12 @@
         android:layout_width="334dp"
         android:layout_height="115dp"
         app:cardCornerRadius="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="27dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="20dp"
-        app:cardBackgroundColor="@color/teal_200"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -48,14 +45,14 @@
 
             <ImageView
                 android:id="@+id/imageViewAvatarPokeball"
-                android:layout_width="145dp"
-                android:layout_height="145dp"
+                android:layout_width="147dp"
+                android:layout_height="142dp"
                 android:layout_marginStart="204dp"
                 android:layout_marginTop="-15dp"
                 android:layout_marginEnd="-15dp"
                 android:layout_marginBottom="-15dp"
-                android:src="@drawable/ic_pokeball_alpha_foreground"
                 android:scaleType="centerCrop"
+                android:src="@drawable/ic_pokeball_alpha_foreground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -88,12 +85,14 @@
                 android:id="@+id/cardViewDetailPokemon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="15dp"
                 app:cardCornerRadius="3dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintImageDetail1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -107,9 +106,12 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                     <TextView
+                        android:id="@+id/textViewDetailPokemon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
                         android:layout_marginStart="25dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginTop="5.5dp"
@@ -129,7 +131,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="15dp"
+                android:visibility="invisible"
                 app:cardCornerRadius="3dp"
                 app:layout_constraintStart_toEndOf="@id/cardViewDetailPokemon"
                 app:layout_constraintBottom_toBottomOf="parent">
@@ -148,9 +151,12 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                     <TextView
+                        android:id="@+id/textViewDetail2Pokemon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
                         android:layout_marginStart="25dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginTop="5.5dp"
