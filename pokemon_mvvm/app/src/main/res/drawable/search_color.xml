@@ -3,7 +3,7 @@
     android:padding="10dp"
     android:shape="rectangle">
 
-    <solid android:color="@color/search_input_color" />
+    <solid android:color="@color/color_search" />
     <corners
         android:bottomLeftRadius="10dp"
         android:bottomRightRadius="10dp"
