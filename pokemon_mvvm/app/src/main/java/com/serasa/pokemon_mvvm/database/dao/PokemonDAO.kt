@@ -14,7 +14,7 @@ interface PokemonDAO {
     fun all() : List<Pokemon>
 
     @Query("SELECT * FROM Pokemon WHERE poke_name = :pokeId")
-    fun byId(pokeId: String) : List<Pokemon>
+    fun byId(pokeId: String) : Pokemon
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(pokemon: Pokemon)
