@@ -28,9 +28,16 @@
         <entry key="app/src/main/res/drawable/ic_steel.xml" value="0.12314814814814815" />
         <entry key="app/src/main/res/drawable/ic_water.xml" value="0.12314814814814815" />
         <entry key="app/src/main/res/drawable/search_color.xml" value="0.2111111111111111" />
+        <entry key="app/src/main/res/drawable/shape_cicler_border.xml" value="0.22037037037037038" />
+        <entry key="app/src/main/res/layout/activity_bottom_sheet.xml" value="0.25905797101449274" />
+        <entry key="app/src/main/res/layout/bottom_sheet.xml" value="0.25905797101449274" />
+        <entry key="app/src/main/res/layout/bottom_sheet_fragment.xml" value="0.25905797101449274" />
+        <entry key="app/src/main/res/layout/bottom_sheet_navigation.xml" value="0.25905797101449274" />
         <entry key="app/src/main/res/layout/item_pokemon_list.xml" value="0.30067567567567566" />
-        <entry key="app/src/main/res/layout/main_activity.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/layout_persistent_bottom_sheet.xml" value="0.25905797101449274" />
+        <entry key="app/src/main/res/layout/main_activity.xml" value="0.335" />
         <entry key="app/src/main/res/layout/main_fragment.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/shape_cicler_border.xml" value="0.25905797101449274" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2898148148148148" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2898148148148148" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_pokeball.xml" value="0.2898148148148148" />

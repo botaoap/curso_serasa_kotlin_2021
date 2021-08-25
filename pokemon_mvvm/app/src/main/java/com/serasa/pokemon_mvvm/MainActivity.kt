@@ -2,6 +2,8 @@ package com.serasa.pokemon_mvvm
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.serasa.pokemon_mvvm.view.MainFragment
 
 class MainActivity : AppCompatActivity() {
@@ -15,4 +17,6 @@ class MainActivity : AppCompatActivity() {
                 .commitNow()
         }
     }
+
+
 }
