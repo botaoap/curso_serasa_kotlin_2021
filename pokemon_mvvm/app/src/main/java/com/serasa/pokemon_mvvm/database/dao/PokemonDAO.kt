@@ -21,4 +21,10 @@ interface PokemonDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertType(types: List<Types>)
+
+    /**
+     * Pesquisar no banco nome especifico
+     */
+    @Query("SELECT * FROM pokemon WHERE poke_name LIKE LOWER('%' || :query || '%')")
+    fun fetchFiltered(query: String) : List<Pokemon>
 }

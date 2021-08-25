@@ -2,11 +2,15 @@ package com.serasa.pokemon_mvvm.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.serasa.pokemon_mvvm.R
 import com.serasa.pokemon_mvvm.adapter.AdapterPokemon
 import com.serasa.pokemon_mvvm.databinding.MainFragmentBinding
@@ -21,6 +25,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: MainFragmentBinding
+    private lateinit var recyclerView: RecyclerView
     private var adapter = AdapterPokemon()
 
     private val observerPokemon = Observer<List<Pokemon>> { pokemon ->
@@ -33,11 +38,35 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         binding = MainFragmentBinding.bind(view)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        binding.recyclerViewListOfPokemon.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerViewListOfPokemon.adapter = adapter
+        recyclerView = binding.recyclerViewListOfPokemon
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
 
         viewModel.pokeResponse.observe(viewLifecycleOwner, observerPokemon)
         viewModel.fetchAllFromDataBase(requireContext())
+
+        binding.editTextInputSearchField.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                p0?.let {
+                    if (it.length > 2) {
+                        viewModel.fetchFilteredFromDataBase(requireContext(), it.toString())
+                    }
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                p0?.let {
+                    if (it.isEmpty()) {
+                        viewModel.fetchAllFromDataBase(requireContext())
+                    }
+                }
+            }
+
+        })
     }
 
 }
