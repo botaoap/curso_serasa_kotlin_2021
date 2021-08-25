@@ -54,9 +54,42 @@
         android:id="@+id/recyclerViewTypes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
         android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTypes" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTypes"
+        tools:listitem="@layout/types_icon_pokemon"
+        />
+
+    <TextView
+        android:id="@+id/textViewWeaknesses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/weaknesses"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimen_16"
+        android:textStyle="bold"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewTypes" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewWeaknesses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWeaknesses"
+        tools:listitem="@layout/types_icon_pokemon"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

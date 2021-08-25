@@ -18,4 +18,5 @@
     <string name="filters">Filters</string>
     <string name="use_advanced_search_to_explore_pok_mon">Use advanced search to explore Pokémon by type, weakness, height and more!</string>
     <string name="types">Types</string>
+    <string name="weaknesses">Weaknesses</string>
 </resources>
