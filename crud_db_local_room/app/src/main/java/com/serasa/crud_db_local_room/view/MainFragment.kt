@@ -1,4 +1,4 @@
-package com.serasa.crud_db_local_room.ui.main
+package com.serasa.crud_db_local_room.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.serasa.crud_db_local_room.R
+import com.serasa.crud_db_local_room.view_model.MainViewModel
 
 class MainFragment : Fragment() {
 

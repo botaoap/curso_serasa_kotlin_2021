@@ -1,4 +1,4 @@
-package com.serasa.crud_db_local_room.ui.main
+package com.serasa.crud_db_local_room.view_model
 
 import androidx.lifecycle.ViewModel
 

@@ -2,7 +2,7 @@ package com.serasa.crud_db_local_room
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.serasa.crud_db_local_room.ui.main.MainFragment
+import com.serasa.crud_db_local_room.view.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
