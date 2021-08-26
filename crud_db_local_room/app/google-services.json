@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "697946458668",
+    "project_id": "fir-with-mvvm-kotlin",
+    "storage_bucket": "fir-with-mvvm-kotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697946458668:android:c36e08d7a15d822fce5f89",
+        "android_client_info": {
+          "package_name": "com.serasa.crud_db_local_room"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "697946458668-m1a1h6gg65lripb8s046ut6kh28t7l26.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGRuUXHj27psctiOBTGS1Wc2OBCI61EC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "697946458668-m1a1h6gg65lripb8s046ut6kh28t7l26.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697946458668:android:8db1284d27222e96ce5f89",
+        "android_client_info": {
+          "package_name": "com.serasa.exercise_firebase_mvvm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "697946458668-m1a1h6gg65lripb8s046ut6kh28t7l26.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGRuUXHj27psctiOBTGS1Wc2OBCI61EC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "697946458668-m1a1h6gg65lripb8s046ut6kh28t7l26.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697946458668:android:fd5165e53b1bbc30ce5f89",
+        "android_client_info": {
+          "package_name": "com.serasa.firebase_with_mvvm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "697946458668-m1a1h6gg65lripb8s046ut6kh28t7l26.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGRuUXHj27psctiOBTGS1Wc2OBCI61EC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "697946458668-m1a1h6gg65lripb8s046ut6kh28t7l26.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
