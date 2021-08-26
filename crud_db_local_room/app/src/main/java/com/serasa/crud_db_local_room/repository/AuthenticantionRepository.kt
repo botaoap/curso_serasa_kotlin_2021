@@ -2,8 +2,6 @@ package com.serasa.crud_db_local_room.repository
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.ktx.Firebase
-import javax.security.auth.callback.Callback
 
 class AuthenticantionRepository {
 
@@ -39,4 +37,8 @@ class AuthenticantionRepository {
             callback(authResult.user)
         }
     }
+
+    fun signOut() = auth.signOut()
+
+    fun currentUser(): FirebaseUser? = auth.currentUser
 }
