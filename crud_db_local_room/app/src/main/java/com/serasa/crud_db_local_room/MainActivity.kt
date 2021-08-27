@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.serasa.crud_db_local_room.repository.AuthenticantionRepository
 import com.serasa.crud_db_local_room.utils.replaceView
+import com.serasa.crud_db_local_room.view.CategoryFragment
 import com.serasa.crud_db_local_room.view.MainFragment
 import com.serasa.crud_db_local_room.view.SignInFragment
 

@@ -1,11 +1,9 @@
 package com.serasa.crud_db_local_room.view
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.serasa.crud_db_local_room.R
 import com.serasa.crud_db_local_room.databinding.MainFragmentBinding
 import com.serasa.crud_db_local_room.repository.AuthenticantionRepository
@@ -21,17 +19,32 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     private lateinit var binding: MainFragmentBinding
     private lateinit var viewModel: MainViewModel
     private var auth = AuthenticantionRepository()
-
+    
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = MainFragmentBinding.bind(view)
+
+
+        binding.bottomNavigation.setOnNavigationItemReselectedListener { item ->
+            when(item.itemId) {
+                R.id.page_1 -> {
+                    requireActivity().replaceView(CategoryFragment.newInstance(), R.id.containerBottomNavigation)
+                    true
+                }
+                R.id.page_2 -> {
+                    // Respond to navigation item 2 reselection
+                }
+                R.id.page_3 -> {
+
+                }
+                else -> false
+            }
+        }
 
         binding.imageViewLogOutMain.setOnClickListener {
             auth.signOut()
             requireActivity().replaceView(SignInFragment.newInstance())
         }
     }
-
-
 }
