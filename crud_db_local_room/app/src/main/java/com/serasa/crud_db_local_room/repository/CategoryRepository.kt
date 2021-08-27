@@ -21,4 +21,8 @@ class CategoryRepository (
     fun deleteIntoDB(category: Category) {
         database.categoryDAO().deleteCategory(category)
     }
+
+    fun updateIntoDB(category: String, idCategory: Long) {
+        database.categoryDAO().updateCategory(category, idCategory)
+    }
 }

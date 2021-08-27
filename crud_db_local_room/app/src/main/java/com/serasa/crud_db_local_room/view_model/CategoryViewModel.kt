@@ -35,4 +35,10 @@ class CategoryViewModel : ViewModel() {
         getCategories(context)
 
     }
+
+    fun updateIntoDB(category: String, idCategory: Long, context: Context) {
+        categoryRepository = CategoryRepository(context)
+        categoryRepository.updateIntoDB(category, idCategory)
+        getCategories(context)
+    }
 }

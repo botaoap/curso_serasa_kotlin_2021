@@ -19,32 +19,16 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     private lateinit var binding: MainFragmentBinding
     private lateinit var viewModel: MainViewModel
     private var auth = AuthenticantionRepository()
-    
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = MainFragmentBinding.bind(view)
-
-
-        binding.bottomNavigation.setOnNavigationItemReselectedListener { item ->
-            when(item.itemId) {
-                R.id.page_1 -> {
-                    requireActivity().replaceView(CategoryFragment.newInstance(), R.id.containerBottomNavigation)
-                    true
-                }
-                R.id.page_2 -> {
-                    // Respond to navigation item 2 reselection
-                }
-                R.id.page_3 -> {
-
-                }
-                else -> false
-            }
-        }
 
         binding.imageViewLogOutMain.setOnClickListener {
             auth.signOut()
             requireActivity().replaceView(SignInFragment.newInstance())
         }
     }
+
 }

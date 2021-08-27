@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".view.CategoryFragment">
 
+    <ImageView
+        android:id="@+id/imageViewLogOutMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_logout"
+        android:layout_margin="@dimen/margin_20"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textFieldCategory"
         android:layout_width="match_parent"

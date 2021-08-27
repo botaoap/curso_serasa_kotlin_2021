@@ -8,14 +8,20 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import com.serasa.crud_db_local_room.adapter.AdapterCategory
 import com.serasa.crud_db_local_room.databinding.CategoryFragmentBinding
 import com.serasa.crud_db_local_room.model.Category
 import com.serasa.crud_db_local_room.utils.hideKeyboard
 import com.serasa.crud_db_local_room.view_model.CategoryViewModel
 import android.content.DialogInterface
+import android.text.InputType
+import android.widget.EditText
+import android.widget.TextView
 import com.serasa.crud_db_local_room.R
+import com.serasa.crud_db_local_room.databinding.ItemCategoryBinding
+import com.serasa.crud_db_local_room.repository.AuthenticantionRepository
+import com.serasa.crud_db_local_room.utils.replaceView
+import org.w3c.dom.Text
 
 
 class CategoryFragment : Fragment(R.layout.category_fragment) {
@@ -25,9 +31,12 @@ class CategoryFragment : Fragment(R.layout.category_fragment) {
     }
 
     private lateinit var binding: CategoryFragmentBinding
+
+    //    private lateinit var bindingItemCategory: ItemCategoryBinding
     private lateinit var viewModel: CategoryViewModel
     private lateinit var adapter: AdapterCategory
     private lateinit var recyclerViewCategory: RecyclerView
+    private var auth = AuthenticantionRepository()
 
 
     private val observerCategory = Observer<List<Category>> {
@@ -43,10 +52,13 @@ class CategoryFragment : Fragment(R.layout.category_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = CategoryFragmentBinding.bind(view)
+//        bindingItemCategory = ItemCategoryBinding.bind(view)
         viewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
-        adapter = AdapterCategory(){ category, imagem ->
-            imagem.setOnClickListener {
 
+
+        adapter = AdapterCategory { category, isDelete ->
+
+            if (isDelete) {
                 AlertDialog.Builder(requireContext()) // set message, title, and icon
                     .setTitle("Delete")
                     .setMessage("Do you want to Delete")
@@ -60,7 +72,30 @@ class CategoryFragment : Fragment(R.layout.category_fragment) {
                         DialogInterface.OnClickListener { dialog, which -> dialog.dismiss() })
                     .create()
                     .show()
+            } else {
+                val nameCategory = EditText(requireContext())
+                nameCategory.setHint(category.name)
+                nameCategory.inputType = InputType.TYPE_CLASS_TEXT
+
+                AlertDialog.Builder(requireContext())
+                    .setTitle("Edit your Category")
+                    .setView(nameCategory)
+                    .setPositiveButton("Edit",
+                        DialogInterface.OnClickListener { dialog, which ->
+                            viewModel.updateIntoDB(
+                                nameCategory.text.toString(),
+                                category.id,
+                                requireContext()
+                            )
+                        })
+                    .setNegativeButton("Cancel",
+                        DialogInterface.OnClickListener { dialog, which ->
+                            dialog.cancel()
+                        })
+                    .create()
+                    .show()
             }
+
         }
 
         recyclerViewCategory = binding.recyclerViewListCategory
@@ -73,6 +108,7 @@ class CategoryFragment : Fragment(R.layout.category_fragment) {
 
 
         binding.buttonADDCategory.setOnClickListener {
+            requireActivity().hideKeyboard()
             if (!binding.editTextInputCategory.text.isNullOrEmpty()) {
                 viewModel.insertIntopDB(
                     binding.editTextInputCategory.text.toString(),
@@ -81,9 +117,17 @@ class CategoryFragment : Fragment(R.layout.category_fragment) {
             }
             binding.editTextInputCategory.setText("")
             binding.editTextInputCategory.clearFocus()
-            requireActivity().hideKeyboard()
+
         }
 
+        binding.imageViewLogOutMain.setOnClickListener {
+            auth.signOut()
+            requireActivity().replaceView(SignInFragment.newInstance())
+        }
 
+        view.setOnClickListener {
+            requireActivity().hideKeyboard()
+            binding.editTextInputCategory.clearFocus()
+        }
     }
 }

@@ -55,6 +55,12 @@ class SignUpFragment : Fragment(R.layout.sign_up_fragment) {
         binding.imageViewArrowBackSignUp.setOnClickListener {
             requireActivity().replaceView(SignInFragment.newInstance())
         }
+
+        view.setOnClickListener {
+            requireActivity().hideKeyboard()
+            binding.editTextInputEmailSignUp.clearFocus()
+            binding.editTextInputPasswordSignUp.clearFocus()
+        }
     }
 
 }

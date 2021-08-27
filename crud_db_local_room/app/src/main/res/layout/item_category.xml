@@ -4,13 +4,12 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <TextView
         android:id="@+id/textViewIdCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:layout_margin="@dimen/margin_20"
+        android:layout_marginStart="@dimen/margin_20"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/id" />
@@ -19,7 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:layout_margin="@dimen/margin_20"
+        android:layout_marginStart="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewIdCategory"
@@ -27,12 +27,26 @@
 
     <ImageView
         android:id="@+id/imageViewDeleteCategory"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
         android:layout_margin="@dimen/margin_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/ic_delete"/>
+
+    <ImageView
+        android:id="@+id/imageViewUpdateCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:layout_marginEnd="@dimen/margin_20"
+        app:layout_constraintEnd_toStartOf="@id/imageViewDeleteCategory"
+        app:layout_constraintTop_toTopOf="@id/imageViewDeleteCategory"
+        android:src="@drawable/ic_edit"
+        />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
