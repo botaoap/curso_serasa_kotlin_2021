@@ -22,7 +22,6 @@ class AdapterCategory(var onClick: (Category, isDelete: Boolean) -> Unit) :
 
     override fun onBindViewHolder(holder: ItemCategoryViewHolder, position: Int) {
         listOfCategory[position].apply {
-
             holder.bin(this)
         }
     }
@@ -44,7 +43,7 @@ class ItemCategoryViewHolder(itemView: View, val onClick: (Category, isDelete: B
 
 
     fun bin(category: Category) {
-        binding.textViewIdCategory.text = category.id.toString()
+        binding.textViewIdCategory.text = "ID: ${category.id.toString()}"
         binding.textViewNameCategory.text = category.name
         binding.imageViewDeleteCategory.setColorFilter(itemView.context.getColor(R.color.red))
         binding.imageViewDeleteCategory.setOnClickListener {
@@ -53,7 +52,5 @@ class ItemCategoryViewHolder(itemView: View, val onClick: (Category, isDelete: B
         binding.imageViewUpdateCategory.setOnClickListener {
             onClick(category, false)
         }
-
-
     }
 }

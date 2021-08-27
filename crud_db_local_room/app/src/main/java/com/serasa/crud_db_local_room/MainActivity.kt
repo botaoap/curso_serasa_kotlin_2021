@@ -11,6 +11,7 @@ import com.serasa.crud_db_local_room.repository.AuthenticantionRepository
 import com.serasa.crud_db_local_room.utils.replaceView
 import com.serasa.crud_db_local_room.view.CategoryFragment
 import com.serasa.crud_db_local_room.view.MainFragment
+import com.serasa.crud_db_local_room.view.ProductFragment
 import com.serasa.crud_db_local_room.view.SignInFragment
 
 class MainActivity : AppCompatActivity() {
@@ -42,9 +43,8 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.page_1 -> replaceView(CategoryFragment.newInstance())
-                R.id.page_2 -> replaceView((MainFragment.newInstance()))
-                R.id.page_3 -> {
-                }
+                R.id.page_2 -> replaceView(ProductFragment.newInstance())
+                R.id.page_3 -> replaceView(MainFragment.newInstance())
             }
             return@setOnItemSelectedListener true
         }

@@ -16,9 +16,10 @@ interface CategoryDAO {
     fun insertCategory(list: Category)
 
     @Delete
-    fun deleteCategory(list: Category)
+    fun deleteListCategory(list: Category)
 
     @Query("UPDATE Category SET cat_name = :nameUpdate WHERE cat_id = :idCategory")
     fun updateCategory(nameUpdate: String, idCategory: Long)
+
 
 }

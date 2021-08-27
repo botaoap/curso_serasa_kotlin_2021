@@ -19,7 +19,7 @@ class CategoryRepository (
     }
 
     fun deleteIntoDB(category: Category) {
-        database.categoryDAO().deleteCategory(category)
+        database.categoryDAO().deleteListCategory(category)
     }
 
     fun updateIntoDB(category: String, idCategory: Long) {

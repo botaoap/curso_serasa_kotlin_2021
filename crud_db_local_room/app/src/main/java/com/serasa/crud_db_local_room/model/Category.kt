@@ -12,4 +12,8 @@ data class Category(
     val id: Long = 0,
     @ColumnInfo(name = "cat_name")
     val name: String
-)
+) {
+    override fun toString(): String {
+        return name
+    }
+}
