@@ -30,3 +30,7 @@
 
 # Git branching model
 - Git Flow: [AQUI](https://nvie.com/posts/a-successful-git-branching-model/)
+
+# Open Source Computer Vision Library
+- GitHub: [AQUI](https://github.com/opencv/opencv)
+- OpenCV: [AQUI](https://opencv.org)
