@@ -11,14 +11,16 @@ class SearchRepositoriesViewModel : ViewModel() {
     private val _repository = MutableLiveData<List<ItemsGitHub>>()
     var repository: LiveData<List<ItemsGitHub>> = _repository
 
+    private val _page = MutableLiveData(0)
+    var page: LiveData<Int> = _page
+
     private val _error = MutableLiveData<String>()
     var error: LiveData<String> = _error
 
     private val repositoryGitHub = RepositoryGitHubRepository()
-//    q: Char, language: String, sort: String, order: String
-    fun getSearchRepository() {
-//        q, language, sort, order
-        repositoryGitHub.fetchAllRepositories() { listRepo, error ->
+
+    fun getSearchRepository(language: String, page: Int = 1) {
+        repositoryGitHub.fetchAllRepositories(language = language, page = page) { listRepo, error ->
             listRepo?.apply {
                 _repository.value = this.items
             }
@@ -26,5 +28,9 @@ class SearchRepositoriesViewModel : ViewModel() {
                 _error.value = error
             }
         }
+    }
+
+    fun nextPage() {
+        _page.value = _page.value!! + 1
     }
 }

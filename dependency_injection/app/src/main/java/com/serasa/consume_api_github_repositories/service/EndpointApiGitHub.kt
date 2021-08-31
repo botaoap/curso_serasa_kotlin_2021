@@ -7,16 +7,16 @@ import com.serasa.consume_api_github_repositories.model.UserDetail
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface EndpointApiGitHub {
 
-    @GET("/search/repositories?q=language:Java&sort=fork&order=desc")
+    @GET("/search/repositories")
     fun searchRepositories(
-//        @Query("q") q: Char,
-//        @Path ("language") language: String,
-//        @Path ("sort") sort: String,
-//        @Path ("order") order: String,
-//        @Query ("per_page") per_page: String
+        @Query("q") language: String,
+        @Query ("sort") sort: String,
+        @Query("page") page: Int,
+        @Query ("order") order: String,
     ) : Call<RepositoryGitHub>
 
     @GET("/repos/{owner}/{repo}/pulls")

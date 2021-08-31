@@ -11,4 +11,5 @@
     <string name="bio">Bio</string>
     <string name="name">Name</string>
     <string name="location">Location</string>
+    <string name="loading_items">Loading items.....</string>
 </resources>

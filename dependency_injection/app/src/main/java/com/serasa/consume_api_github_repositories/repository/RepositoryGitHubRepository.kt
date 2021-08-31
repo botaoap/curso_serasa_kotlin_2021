@@ -14,12 +14,22 @@ import retrofit2.Response
 class RepositoryGitHubRepository {
 
     private val retrofit = RetrofitBuilder.getEndpointApiGitHub()
-//    q: Char, language: String, sort: String, order: String,
-    fun fetchAllRepositories(callBack: (RepositoryGitHub?, String?) -> Unit) {
-//        q,language,sort, order
+
+    fun fetchAllRepositories(
+        language: String,
+        sort: String = "stars",
+        page: Int = 1,
+        order: String = "desc",
+        callBack: (RepositoryGitHub?, String?) -> Unit)
+    {
 
         Handler(Looper.getMainLooper()).postDelayed({
-            retrofit.searchRepositories()
+            retrofit.searchRepositories(
+                language = "language:$language",
+                sort = sort,
+                page = page,
+                order = order
+            )
                 .enqueue(object : Callback<RepositoryGitHub> {
                     override fun onResponse(
                         call: Call<RepositoryGitHub>,

@@ -29,11 +29,18 @@ class SearchRepositoriesFragment : Fragment(R.layout.search_repositories_fragmen
     private lateinit var viewModelPullRquest: PullRequestViewModel
     private lateinit var adapter: AdapterRepositoryGitHub
     private lateinit var recyclerView: RecyclerView
+    private val LANGUAGE = "Kotlin"
+
+    private val observerPage = Observer<Int> { page ->
+        viewModel.getSearchRepository(LANGUAGE, page)
+    }
 
     private val observerRepository = Observer<List<ItemsGitHub>> {
+        binding.SplashScreenProgrammer.visibility = INVISIBLE
+        binding.textViewLoadingNextPage.visibility = View.GONE
         adapter.refresh(it)
 //        binding.progressBarRepositories.visibility = INVISIBLE
-        binding.SplashScreenProgrammer.visibility = INVISIBLE
+
     }
 
     private val observerError = Observer<String> {
@@ -46,6 +53,7 @@ class SearchRepositoriesFragment : Fragment(R.layout.search_repositories_fragmen
 
         loadComponents(view)
         executeApplication()
+//        callForMoreItems()
 
     }
 
@@ -61,12 +69,31 @@ class SearchRepositoriesFragment : Fragment(R.layout.search_repositories_fragmen
 
     fun executeApplication() {
         viewModel.repository.observe(viewLifecycleOwner, observerRepository)
+        viewModel.page.observe(viewLifecycleOwner, observerPage)
         viewModel.error.observe(viewLifecycleOwner, observerError)
-//        'q', "Java", "fork", "desc"
 
-        viewModel.getSearchRepository()
+        viewModel.getSearchRepository(LANGUAGE)
 
+        binding.recyclerViewRepositories.addOnScrollListener(object :
+            RecyclerView.OnScrollListener() {
 
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                /**
+                 * Verificar se o scroll chegou ao final da lista, se sim chama o nextPage()
+                 *
+                 */
+                if (!recyclerView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    callForMoreItems()
+                }
+            }
+
+        })
+
+    }
+
+    fun callForMoreItems() {
+        binding.textViewLoadingNextPage.visibility = VISIBLE
+        viewModel.nextPage()
     }
 
     override fun onClickRepository(repo: ItemsGitHub) {

@@ -11,6 +11,7 @@ import com.serasa.consume_api_github_repositories.R
 import com.serasa.consume_api_github_repositories.databinding.ItemRepositoriesBinding
 import com.serasa.consume_api_github_repositories.model.ItemsGitHub
 import com.serasa.consume_api_github_repositories.utils.ClickItemRepository
+import com.serasa.consume_api_github_repositories.utils.formatMin
 
 class AdapterRepositoryGitHub(val onClickRepository: ClickItemRepository) : RecyclerView.Adapter<ItemRepositoriesViewHolder>() {
 
@@ -39,7 +40,6 @@ class AdapterRepositoryGitHub(val onClickRepository: ClickItemRepository) : Recy
     }
 
     fun refresh(newList: List<ItemsGitHub>) {
-        listOfRepositories.clear()
         listOfRepositories.addAll(newList)
         notifyDataSetChanged()
     }
@@ -53,9 +53,9 @@ class ItemRepositoriesViewHolder(itemView: View): RecyclerView.ViewHolder(itemVi
         binding.textViewTitleRepositorie.setTextColor(getColor(itemView.context, R.color.blue))
         binding.textViewDescriptionRespositorie.text = item.description
         binding.textViewUsernameRepositorie.text = item.owner.userName
-        binding.includeFokStar.textViewForkCount.text = item.forkCount.toString()
+        binding.includeFokStar.textViewForkCount.text = item.forkCount.formatMin()
         binding.includeFokStar.textViewForkCount.setTextColor(getColor(itemView.context,R.color.gold))
-        binding.includeFokStar.textViewStarCount.text = item.startCount.toString()
+        binding.includeFokStar.textViewStarCount.text = item.startCount.formatMin()
         binding.includeFokStar.textViewStarCount.setTextColor(getColor(itemView.context,R.color.gold))
         binding.includeFokStar.imageViewFork.setColorFilter(getColor(itemView.context,R.color.gold))
         binding.includeFokStar.imageViewStar.setColorFilter(getColor(itemView.context,R.color.gold))
