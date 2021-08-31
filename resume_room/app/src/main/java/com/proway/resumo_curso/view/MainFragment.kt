@@ -3,11 +3,9 @@ package com.proway.resumo_curso.view
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +14,9 @@ import com.proway.resumo_curso.R
 import com.proway.resumo_curso.databinding.MainFragmentBinding
 import com.proway.resumo_curso.model.GithubModel
 import com.proway.resumo_curso.view_model.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment : Fragment(R.layout.main_fragment) {
 
     companion object {
