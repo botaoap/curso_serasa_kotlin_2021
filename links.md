@@ -35,3 +35,9 @@
 # Open Source Computer Vision Library
 - GitHub: [AQUI](https://github.com/opencv/opencv)
 - OpenCV: [AQUI](https://opencv.org)
+
+# Package Manager
+- Homebrew: [AQUI](https://brew.sh)
+
+# Use on Terminal
+- Oh my zsh: [AQUI](https://ohmyz.sh)
