@@ -14,6 +14,7 @@
 - Butter Knife: [AQUI](https://jakewharton.github.io/butterknife/)
 - Unit Test Androit: [AQUI](https://developer.android.com/training/testing/fundamentals)
 - Dependency injection with Hilt: [AQUI](https://developer.android.com/training/dependency-injection/hilt-android)
+- Room DB: [AQUI](https://developer.android.com/training/data-storage/room?hl=pt-br)
 
 # Architecture
 - MVVM: [AQUI](https://developer.android.com/jetpack/guide?gclid=CjwKCAjwmeiIBhA6EiwA-uaeFa5QVkyirf5OOjQE1yIT2J8r1VYKKY24W7m-xgy87ERnEDXjeQ8BHxoCPNQQAvD_BwE&gclsrc=aw.ds)
