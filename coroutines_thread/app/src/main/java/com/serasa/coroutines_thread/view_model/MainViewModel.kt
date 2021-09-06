@@ -1,4 +1,4 @@
-package com.serasa.coroutines_thread.ui.main
+package com.serasa.coroutines_thread.view_model
 
 import androidx.lifecycle.ViewModel
 
