@@ -8,13 +8,26 @@
     tools:context=".view.MainFragment">
 
     <TextView
-        android:id="@+id/message"
+        android:id="@+id/texteViewChangeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MainFragment"
+        android:textSize="30sp"
+        android:fontFamily="serif-monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Names"/>
+
+    <TextView
+        android:id="@+id/texteViewCountNumbers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/texteViewChangeName"
+        tools:text="Number" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
