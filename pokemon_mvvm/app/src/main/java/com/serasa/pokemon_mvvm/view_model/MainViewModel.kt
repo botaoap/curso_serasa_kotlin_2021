@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.serasa.pokemon_mvvm.model.Pokemon
 import com.serasa.pokemon_mvvm.repository.PokemonRepository
+import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
@@ -15,43 +17,34 @@ class MainViewModel : ViewModel() {
     private val _error = MutableLiveData<String>()
     var error: LiveData<String> = _error
 
-//    private val pokemonRepository = PokemonRepository()
+    private val _loading = MutableLiveData<Boolean>()
+    var loading: LiveData<Boolean> = _loading
 
-    private fun fetchAllFromServer(context: Context) {
-        val repository = PokemonRepository(context)
-        repository.fetchAll { response, error ->
-            response?.let {
-                _pokeResponse.value = it.results
-                loadDetails(it.results, repository)
-            }
-            error?.let {
-                _error.value = it
-            }
-        }
-    }
-
-    private fun loadDetails(pokemon: List<Pokemon>, repository: PokemonRepository) {
-        pokemon.forEach { poke ->
-            repository.fetchPokemonDetail(pokeId = poke.extracIfFromUrl()) { detail, _ ->
-                detail.let {
-                    poke.details = detail
-                    repository.insertIntoDataBase(poke)
+    fun fetchAllFromServer(context: Context) {
+        PokemonRepository(context).let { repository ->
+            _loading.value = true
+            viewModelScope.launch {
+                repository.fetchAll()?.let { pokemon ->
+                    _loading.value = false
+                    _pokeResponse.value = pokemon
                 }
             }
         }
     }
 
     fun fetchAllFromDataBase(context: Context) {
-        val listOf = PokemonRepository(context).fetchAllFromDataBase()
-        if (listOf != null && listOf.isNotEmpty()) {
-            _pokeResponse.value = listOf
-        } else {
-            fetchAllFromServer(context)
+        PokemonRepository(context).fetchAllFromDataBase().let { listOf ->
+            if (listOf != null && listOf.isNotEmpty()) {
+                _pokeResponse.value = listOf
+            } else {
+                fetchAllFromDataBase(context)
+            }
         }
     }
 
     fun fetchFilteredFromDataBase(context: Context, query: String) {
         val repository = PokemonRepository(context)
+        _pokeResponse.value = emptyList()
         val filteredList = repository.fetchAllFromDataBaseWithFilter(query)
         filteredList?.let {
             _pokeResponse.value = it

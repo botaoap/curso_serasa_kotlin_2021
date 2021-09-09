@@ -8,6 +8,8 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -40,24 +42,50 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         adapter.refresh(pokemon)
     }
 
+    private val observerLoading = Observer<Boolean> { isLoading ->
+        binding.progressBar.visibility = if (isLoading) VISIBLE else INVISIBLE
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.fetchAllFromServer(requireContext())
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        loadComponents(view)
+        executeComponents()
+        searchPokemon()
+    }
+
+    fun loadComponents(view: View) {
         binding = MainFragmentBinding.bind(view)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         recyclerView = binding.recyclerViewListOfPokemon
+    }
+
+    fun executeComponents() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 
         viewModel.pokeResponse.observe(viewLifecycleOwner, observerPokemon)
-        viewModel.fetchAllFromDataBase(requireContext())
+        viewModel.loading.observe(viewLifecycleOwner, observerLoading)
 
+
+        binding.imageViewFilter.setOnClickListener {
+            BottomSheetFragment.newInstance().let {
+                it.show(parentFragmentManager, "key_filter")
+            }
+        }
+    }
+
+    fun searchPokemon() {
         binding.editTextInputSearchField.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
-
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 p0?.let {
                     if (it.length > 2) {
@@ -65,7 +93,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                     }
                 }
             }
-
             override fun afterTextChanged(p0: Editable?) {
                 p0?.let {
                     if (it.isEmpty()) {
@@ -73,13 +100,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                     }
                 }
             }
-
         })
-
-        binding.imageViewFilter.setOnClickListener {
-            BottomSheetFragment.newInstance().let {
-                it.show(parentFragmentManager, "key_filter")
-            }
-        }
     }
 }

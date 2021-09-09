@@ -6,6 +6,9 @@ import com.serasa.pokemon_mvvm.model.Pokemon
 import com.serasa.pokemon_mvvm.model.PokemonDetails
 import com.serasa.pokemon_mvvm.model.ResultListPokemon
 import com.serasa.pokemon_mvvm.services.GetApi
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,49 +17,42 @@ import retrofit2.Response
 class PokemonRepository(private val context: Context) {
 
     private val dataBase = AppDataBase.getDataBase(context)
+    private val service = GetApi.getPokeApiService()
 
-    fun fetchAll(onComplete: (ResultListPokemon?, String?) -> Unit) {
-        GetApi.getPokeApiService()
-            .getPokemonAll()
-            .enqueue(object : Callback<ResultListPokemon> {
-                override fun onResponse(
-                    call: Call<ResultListPokemon>,
-                    response: Response<ResultListPokemon>
-                ) {
-                    if (response.body() != null) {
-                        onComplete(response.body(), null)
-                    } else {
-                        onComplete(null, "Nenhum pokemon encontrado")
+    suspend fun fetchAll(): List<Pokemon>? {
+        return withContext(CoroutineScope(Dispatchers.Main).coroutineContext) {
+            fetchAllFromDataBase().let { dataFromDb ->
+                if (dataFromDb.isNullOrEmpty()) {
+                    service.getPokemonAll().let { response ->
+                        processData(response).let { responsePokemon ->
+                            responsePokemon?.results?.forEach { pokemon ->
+                                fetchPokemonDetail(pokemon.extracIfFromUrl()).let { details ->
+                                    pokemon.details = details
+                                }
+                            }
+                            responsePokemon?.results?.let {
+                                insertIntoDataBase(it)
+                            }
+                        }
                     }
+                    fetchAllFromDataBase()
+                } else {
+                    dataFromDb
                 }
-
-                override fun onFailure(call: Call<ResultListPokemon>, t: Throwable) {
-                    onComplete(null, t.message)
-                }
-
-            })
+            }
+        }
     }
 
-    fun fetchPokemonDetail(pokeId: String, onComplete: (PokemonDetails?, String?) -> Unit) {
-        GetApi.getPokeApiService()
-            .getPokemonId(pokeId)
-            .enqueue(object : Callback<PokemonDetails>{
-                override fun onResponse(
-                    call: Call<PokemonDetails>,
-                    response: Response<PokemonDetails>
-                ) {
-                    if (response.body() != null) {
-                        onComplete(response.body(), null)
-                    } else {
-                        onComplete(null, "Nenhum pokemon encontrado")
-                    }
-                }
+    private fun <T> processData(response: Response<T>): T? {
+        return if (response.isSuccessful) response.body() else null
+    }
 
-                override fun onFailure(call: Call<PokemonDetails>, t: Throwable) {
-                    onComplete(null, t.message)
-                }
-
-            })
+    private suspend fun fetchPokemonDetail(pokeId: String): PokemonDetails? {
+        return withContext(CoroutineScope(Dispatchers.Main).coroutineContext) {
+            service.getPokemonId(pokeId).let { response ->
+                processData(response)
+            }
+        }
     }
 
     fun insertIntoDataBase(item: List<Pokemon>) {
@@ -76,7 +72,7 @@ class PokemonRepository(private val context: Context) {
         return dao.all()
     }
 
-    fun fetchAllFromDataBaseWithFilter(query : String): List<Pokemon>? {
+    fun fetchAllFromDataBaseWithFilter(query : String): List<Pokemon> {
         val dao = dataBase.pokemonDAO()
         return dao.fetchFiltered(query)
     }
