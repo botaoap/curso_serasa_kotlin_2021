@@ -32,6 +32,7 @@
 - Lateinit
 - LayoutInflater
 - Arquitetura MVVN
+- DiffUtil
 
 ### API
 - HTTP
