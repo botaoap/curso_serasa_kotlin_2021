@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.serasa.pixabay_image_video.R
@@ -12,9 +13,7 @@ import com.serasa.pixabay_image_video.databinding.MainActivityBinding
 import com.serasa.pixabay_image_video.databinding.MainFragmentBinding
 import com.serasa.pixabay_image_video.model.Image
 
-class PixabayImageAdapter: RecyclerView.Adapter<ItemPixabayImageViewHolder>() {
-
-    private var listOfImage = listOf<Image>()
+class PixabayImageAdapter: ListAdapter<Image, ItemPixabayImageViewHolder>(ImageDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemPixabayImageViewHolder {
         LayoutInflater.from(parent.context).inflate(R.layout.item_image, parent, false).apply {
@@ -23,21 +22,8 @@ class PixabayImageAdapter: RecyclerView.Adapter<ItemPixabayImageViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ItemPixabayImageViewHolder, position: Int) {
-        listOfImage[position].apply {
+        getItem(position).apply {
             holder.bind(this)
-        }
-    }
-
-    override fun getItemCount(): Int {
-        return listOfImage.size
-    }
-
-    fun refresh(newList: List<Image>) {
-        ImageDiffCallback(oldList = listOfImage, newList = newList).let { imageDiffCallback ->
-            DiffUtil.calculateDiff(imageDiffCallback).let { diffResult ->
-                this.listOfImage = newList
-                diffResult.dispatchUpdatesTo(this)
-            }
         }
     }
 }

@@ -34,7 +34,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     private val observerImage = Observer<List<Image>> {
         binding.progressBar.visibility = INVISIBLE
-        adapter.refresh(it)
+        adapter.submitList(it)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
