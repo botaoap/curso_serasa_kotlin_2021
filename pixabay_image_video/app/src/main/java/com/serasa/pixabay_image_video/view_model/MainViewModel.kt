@@ -1,7 +1,30 @@
 package com.serasa.pixabay_image_video.view_model
 
+import android.graphics.pdf.PdfDocument
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.serasa.pixabay_image_video.model.Image
+import com.serasa.pixabay_image_video.repository.PixabayImageRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val repository: PixabayImageRepository
+) : ViewModel() {
+
+    private val _image = MutableLiveData<List<Image>>()
+    var image: LiveData<List<Image>> = _image
+
+    fun fetchImage(q: String = "", page: Int) {
+        viewModelScope.launch {
+            repository.fetchImage(q = q, page = page)?.let {
+                _image.value = it
+            }
+        }
+    }
+
 }

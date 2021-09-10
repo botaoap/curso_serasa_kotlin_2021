@@ -3,7 +3,9 @@ package com.serasa.pixabay_image_video
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.serasa.pixabay_image_video.view.MainFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
