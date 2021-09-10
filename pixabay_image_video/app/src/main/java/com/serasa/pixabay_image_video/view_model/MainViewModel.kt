@@ -1,0 +1,7 @@
+package com.serasa.pixabay_image_video.view_model
+
+import androidx.lifecycle.ViewModel
+
+class MainViewModel : ViewModel() {
+    // TODO: Implement the ViewModel
+}
