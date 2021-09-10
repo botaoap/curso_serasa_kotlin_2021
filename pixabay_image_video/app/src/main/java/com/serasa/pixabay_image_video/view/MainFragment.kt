@@ -7,11 +7,12 @@ import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_DRAGGING
 import com.serasa.pixabay_image_video.R
 import com.serasa.pixabay_image_video.adapter.PixabayImageAdapter
+import com.serasa.pixabay_image_video.adapter.SearchAdapter
 import com.serasa.pixabay_image_video.databinding.MainFragmentBinding
 import com.serasa.pixabay_image_video.model.Image
 import com.serasa.pixabay_image_video.utils.hideKeyboard
@@ -25,16 +26,23 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
-    private lateinit var binding: MainFragmentBinding
-    private lateinit var adapter: PixabayImageAdapter
-    private lateinit var recyclerView: RecyclerView
     private var page: Int = 1
     private var search: String = "sol"
+    private lateinit var viewModel: MainViewModel
+    private lateinit var binding: MainFragmentBinding
+    private lateinit var recyclerView: RecyclerView
+//    lateinit var adapters: ConcatAdapter
+    private lateinit var adapterImage: PixabayImageAdapter
+    private var adapterSearch = SearchAdapter {
+        search = it
+        viewModel.fetchImage(search, page)
+    }
+
 
     private val observerImage = Observer<List<Image>> {
         binding.progressBar.visibility = INVISIBLE
-        adapter.submitList(it)
+        adapterImage.submitList(it)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,14 +56,14 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     fun loadComponents(view: View) {
         binding = MainFragmentBinding.bind(view)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        adapter = PixabayImageAdapter()
         recyclerView = binding.recyclerViewImage
+        adapterImage = PixabayImageAdapter()
     }
 
     fun executeComponents() {
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = adapter
+        recyclerView.adapter = adapterImage
 
         viewModel.image.observe(viewLifecycleOwner, observerImage)
 
@@ -69,11 +77,13 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 //            viewModel.fetchImage(q = "sol", page = page++)
 //
 //        }
+
+        // The end of the Recycler View we Request another Search from Api but is the next page
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 requireActivity().hideKeyboard()
                 super.onScrolled(recyclerView, dx, dy)
-                if(!recyclerView.canScrollVertically(1)) {
+                if (!recyclerView.canScrollVertically(1)) {
                     binding.progressBar.visibility = VISIBLE
                     viewModel.fetchImage(q = search, page = page++)
                 }
@@ -81,6 +91,8 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         })
     }
 
-
-
+    enum class FeedType{
+        VIDEO,
+        IMAGE
+    }
 }

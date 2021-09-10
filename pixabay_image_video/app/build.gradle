@@ -65,4 +65,7 @@ dependencies {
     // TODO: Use Cicler View
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    // TODO: To Use ConcatAdapter
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+
 }
