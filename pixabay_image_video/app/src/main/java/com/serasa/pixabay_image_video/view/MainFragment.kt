@@ -56,6 +56,7 @@ class MainFragment(private val feedType: FeedType) : Fragment(R.layout.main_frag
         binding.progressBar.visibility = INVISIBLE
         view?.findViewById<EditText>(R.id.ediTextSearchOnHeader)
             ?.setHint(R.string.type_for_search_an_video)
+        adapterVideo.submitList(null)
         adapterVideo.submitList(it)
 
     }
@@ -98,7 +99,7 @@ class MainFragment(private val feedType: FeedType) : Fragment(R.layout.main_frag
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                if (!recyclerView.canScrollVertically(1)) {
+                if (!recyclerView.canScrollVertically(1) && dy > 0) {
                     binding.progressBar.visibility = VISIBLE
                     if (feedType == FeedType.VIDEO) {
                         viewModel.fetchVideo(q = search, page = page++)
