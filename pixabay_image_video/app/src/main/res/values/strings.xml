@@ -3,4 +3,6 @@
     <string name="images">Images</string>
     <string name="videos">Videos</string>
     <string name="search">Search</string>
+    <string name="type_for_search_an_image">Type for search an image</string>
+    <string name="type_for_search_an_video">Type for search an video</string>
 </resources>

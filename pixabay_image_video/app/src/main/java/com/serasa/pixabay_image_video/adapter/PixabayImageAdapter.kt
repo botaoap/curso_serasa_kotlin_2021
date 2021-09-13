@@ -3,14 +3,11 @@ package com.serasa.pixabay_image_video.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.serasa.pixabay_image_video.R
 import com.serasa.pixabay_image_video.databinding.ItemImageBinding
-import com.serasa.pixabay_image_video.databinding.MainActivityBinding
-import com.serasa.pixabay_image_video.databinding.MainFragmentBinding
 import com.serasa.pixabay_image_video.model.Image
 
 class PixabayImageAdapter: ListAdapter<Image, ItemPixabayImageViewHolder>(ImageDiffCallback()) {

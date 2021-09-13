@@ -5,14 +5,14 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.serasa.pixabay_image_video.R
 import com.serasa.pixabay_image_video.databinding.ItemSearchBinding
 
 class SearchAdapter(val onTyping: (String) -> Unit): RecyclerView.Adapter<ItemSearchAdapterViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemSearchAdapterViewHolder {
-        LayoutInflater.from(parent.context).inflate(R.layout.item_image, parent, false).apply {
+        LayoutInflater.from(parent.context).inflate(R.layout.item_search, parent, false).apply {
             return ItemSearchAdapterViewHolder(this, onTyping)
         }
     }
@@ -35,8 +35,8 @@ class ItemSearchAdapterViewHolder(itemView: View, val onTyping: (String) -> Unit
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 p0?.let {
-                    if (it.length > 1) {
-                        onTyping.toString()
+                    if (it.length > 2) {
+                        onTyping(it.toString())
                     }
                 }
             }
