@@ -23,7 +23,7 @@ interface PixabayApi {
     suspend fun fetchVideos(
         @Query("key") key: String = BuildConfig.API_KEY,
         @Query("q") q: String,
-        @Query("lang") lang: String = "pt",
+        @Query("lang") lang: String = "en",
         @Query("image_type") imateType: String = "all",
         @Query("page") page: Int = 1
 

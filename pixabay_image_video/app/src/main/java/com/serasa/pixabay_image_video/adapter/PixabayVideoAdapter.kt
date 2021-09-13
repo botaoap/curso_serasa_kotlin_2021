@@ -11,16 +11,33 @@ import com.serasa.pixabay_image_video.R
 import com.serasa.pixabay_image_video.databinding.ItemVideoBinding
 import com.serasa.pixabay_image_video.model.VideoConfig
 
-class PixabayVideoAdapter: ListAdapter<VideoConfig, ItemPixabayVideoViewHolder>(VideoDiffCallback()) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemPixabayVideoViewHolder {
+const val NORMAL_VIEW = 0
+const val ADS_VIEW = 1
+class PixabayVideoAdapter: ListAdapter<VideoConfig, RecyclerView.ViewHolder>(VideoDiffCallback()) {
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position %2 == 0) ADS_VIEW else NORMAL_VIEW
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        if (viewType == ADS_VIEW) {
+            LayoutInflater.from(parent.context).inflate(R.layout.item_ads, parent, false).apply {
+                return AdsViewHolder(this)
+            }
+        }
         LayoutInflater.from(parent.context).inflate(R.layout.item_video, parent, false).apply {
             return ItemPixabayVideoViewHolder(this)
         }
     }
 
-    override fun onBindViewHolder(holder: ItemPixabayVideoViewHolder, position: Int) {
-        getItem(position).let { video ->
-            holder.bind(video)
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (getItemViewType(position) == NORMAL_VIEW) {
+            holder as ItemPixabayVideoViewHolder
+            getItem(position).let { video ->
+                holder.bind(video)
+            }
+        } else {
+            holder as AdsViewHolder
         }
     }
 }

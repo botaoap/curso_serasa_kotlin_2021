@@ -15,7 +15,6 @@ import com.serasa.pixabay_image_video.R
 import com.serasa.pixabay_image_video.adapter.PixabayImageAdapter
 import com.serasa.pixabay_image_video.adapter.PixabayVideoAdapter
 import com.serasa.pixabay_image_video.adapter.SearchAdapter
-import com.serasa.pixabay_image_video.databinding.ItemSearchBinding
 import com.serasa.pixabay_image_video.databinding.MainFragmentBinding
 import com.serasa.pixabay_image_video.model.Image
 import com.serasa.pixabay_image_video.model.VideoConfig
@@ -34,7 +33,6 @@ class MainFragment(private val feedType: FeedType) : Fragment(R.layout.main_frag
     private var search: String = ""
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: MainFragmentBinding
-    private lateinit var bindingSearch: ItemSearchBinding
     private lateinit var recyclerView: RecyclerView
     lateinit var adapters: ConcatAdapter
     private var adapterImage = PixabayImageAdapter()
@@ -102,7 +100,11 @@ class MainFragment(private val feedType: FeedType) : Fragment(R.layout.main_frag
                 super.onScrolled(recyclerView, dx, dy)
                 if (!recyclerView.canScrollVertically(1)) {
                     binding.progressBar.visibility = VISIBLE
-                    viewModel.fetchImage(q = search, page = page++)
+                    if (feedType == FeedType.VIDEO) {
+                        viewModel.fetchVideo(q = search, page = page++)
+                    }
+                    else viewModel.fetchImage(q = search, page = page++)
+//                    viewModel.fetchImage(q = search, page = page++)
                 }
             }
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
