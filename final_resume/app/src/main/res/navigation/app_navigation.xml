@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/app_navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.serasa.final_resume.view.FeedFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/feed_fragment" >
+        <action
+            android:id="@+id/action_feedFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@+id/main_nav_graph_to_Detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.serasa.final_resume.view.DetailFragment"
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment">
+        <action
+            android:id="@+id/action_detailFragment_to_accountFragment"
+            app:destination="@id/accountFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.serasa.final_resume.view.AccountFragment"
+        android:label="account_fragment"
+        tools:layout="@layout/account_fragment" >
+        <action
+            android:id="@+id/action_accountFragment_to_feedFragment"
+            app:destination="@id/feedFragment"
+            app:popEnterAnim="@id/feedFragment"/>
+    </fragment>
 
 </navigation>

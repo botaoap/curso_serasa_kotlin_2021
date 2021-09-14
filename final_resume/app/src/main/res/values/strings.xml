@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">final_resume</string>
+    <string name="go_to_details">Go to Details</string>
+    <string name="go_to_feed">Go to Feed</string>
+    <string name="go_to_account">Go to Account</string>
+    <string name="back_to_feed">Back to Feed</string>
 </resources>
