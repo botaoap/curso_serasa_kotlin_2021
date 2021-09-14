@@ -8,7 +8,9 @@ import androidx.navigation.fragment.findNavController
 import com.serasa.final_resume.R
 import com.serasa.final_resume.databinding.DetailFragmentBinding
 import com.serasa.final_resume.view_model.DetailViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailFragment : Fragment(R.layout.detail_fragment) {
 
     companion object {
