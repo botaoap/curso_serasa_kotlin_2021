@@ -42,7 +42,7 @@ class ItemImageViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     fun bind(image: Image) {
         Glide.with(itemView.context)
-            .load(image.largeImageURL)
+            .load(image.webformatURL)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(binding.imageViewFeed)
     }

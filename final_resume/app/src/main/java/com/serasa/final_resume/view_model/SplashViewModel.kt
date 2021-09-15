@@ -7,27 +7,41 @@ import androidx.lifecycle.viewModelScope
 import com.serasa.final_resume.model.Image
 import com.serasa.final_resume.repository.PixabayRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FeedViewModel @Inject constructor(
-    private var repository: PixabayRepository
+class SplashViewModel @Inject constructor(
+    private val repository: PixabayRepository
 ) : ViewModel() {
-
-    var image = MutableLiveData<List<Image>>()
 
     private val _imageDb = MutableLiveData<List<Image>>()
     var imageDb: LiveData<List<Image>> = _imageDb
 
+    private val _image = MutableLiveData<List<Image>>()
+    var image: LiveData<List<Image>> = _image
+
+    private val _insert = MutableLiveData<Boolean>()
+    var insert: LiveData<Boolean> = _insert
+
     fun fetchImage(q: String, page: Int) {
         viewModelScope.launch {
-            repository.fetchImage(q, page)?.let { response ->
-                image.value = response
+            repository.fetchImage(q = q, page = page).let { listImage ->
+                _image.value = listImage
             }
+            delay(2000)
         }
     }
 
+    fun insert(listOf: List<Image>) {
+        viewModelScope.launch {
+            delay(2000)
+            repository.insert(listOf).let { insertImage ->
+                _insert.value = insertImage
+            }
+        }
+    }
 
     fun fetchImageFromDb() {
         viewModelScope.launch {

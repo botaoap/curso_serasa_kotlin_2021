@@ -1,5 +1,6 @@
 package com.serasa.final_resume.repository
 
+import com.serasa.final_resume.databse.dao.PixabayDAO
 import com.serasa.final_resume.model.Image
 import com.serasa.final_resume.servie.PixabayApi
 import com.serasa.final_resume.servie.VideoConfig
@@ -9,7 +10,8 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class PixabayRepository @Inject constructor(
-    private var service: PixabayApi
+    private var service: PixabayApi,
+    private val dao: PixabayDAO
 ) {
 
     suspend fun fetchImage(q: String, page: Int): List<Image>? {
@@ -30,5 +32,18 @@ class PixabayRepository @Inject constructor(
 
     private fun <T> processData(response: Response<T>): T? {
         return if (response.isSuccessful) response.body() else null
+    }
+
+    suspend fun insert(listOf: List<Image>): Boolean {
+        return withContext(Dispatchers.Default) {
+            dao.insert(listOf)
+            true
+        }
+    }
+
+    suspend fun fetchImageFromDb(): List<Image> {
+        return withContext(Dispatchers.Default) {
+            dao.fetchImage()
+        }
     }
 }

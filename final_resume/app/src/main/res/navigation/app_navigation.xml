@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_navigation"
-    app:startDestination="@id/feedFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/feedFragment"
@@ -34,6 +34,18 @@
             android:id="@+id/action_accountFragment_to_feedFragment"
             app:destination="@id/feedFragment"
             app:popEnterAnim="@id/feedFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.serasa.final_resume.view.SplashFragment"
+        android:label="splash_fragment"
+        tools:layout="@layout/splash_fragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_feedFragment"
+            app:destination="@id/feedFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>
