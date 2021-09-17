@@ -3,6 +3,7 @@ package com.serasa.final_resume.di
 import android.content.Context
 import com.serasa.final_resume.databse.AppDatabase
 import com.serasa.final_resume.databse.dao.PixabayDAO
+import com.serasa.final_resume.servie.NotificationHandler
 import com.serasa.final_resume.servie.PixabayApi
 import dagger.Module
 import dagger.Provides
@@ -30,4 +31,8 @@ class AppModule {
     @Provides
     fun providePixabayDao(@ApplicationContext context: Context): PixabayDAO =
         AppDatabase.getDatabase(context).getPixabayDao()
+
+    @Provides
+    fun provideNotificationHandler(@ApplicationContext context: Context): NotificationHandler =
+        NotificationHandler(context)
 }

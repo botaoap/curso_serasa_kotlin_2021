@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,9 +16,11 @@ import com.serasa.final_resume.adapter.ImageAdapter
 import com.serasa.final_resume.adapter.SearchAdapter
 import com.serasa.final_resume.databinding.FeedFragmentBinding
 import com.serasa.final_resume.model.Image
+import com.serasa.final_resume.servie.NotificationHandler
 import com.serasa.final_resume.util.hideKeyboard
 import com.serasa.final_resume.view_model.FeedViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class FeedFragment : Fragment(R.layout.feed_fragment) {
@@ -25,6 +28,9 @@ class FeedFragment : Fragment(R.layout.feed_fragment) {
     companion object {
         fun newInstance() = FeedFragment()
     }
+
+    @Inject
+    lateinit var notificationHandler: NotificationHandler
 
     private lateinit var viewModel: FeedViewModel
     private lateinit var binding: FeedFragmentBinding
@@ -112,6 +118,17 @@ class FeedFragment : Fragment(R.layout.feed_fragment) {
 
         binding.buttonGoToDetail.setOnClickListener {
             findNavController().navigate(FeedFragmentDirections.actionFeedFragmentToDetailFragment())
+        }
+
+        binding.buttonShowNotification.setOnClickListener {
+            showNotification()
+        }
+    }
+
+    private fun showNotification() {
+        notificationHandler.createNotification("Notificacao", "Mostre as suas fotos").run {
+            val notificationManager = NotificationManagerCompat.from(requireContext())
+            notificationManager.notify(1, this)
         }
     }
 }

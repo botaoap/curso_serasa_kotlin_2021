@@ -5,4 +5,5 @@
     <string name="go_to_account">Go to Account</string>
     <string name="back_to_feed">Back to Feed</string>
     <string name="search_types_of_pohotos">Search types of Photos</string>
+    <string name="notification">Notification</string>
 </resources>
