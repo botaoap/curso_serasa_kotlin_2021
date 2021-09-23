@@ -1,6 +1,7 @@
 package com.serasa.final_resume.di
 
 import android.content.Context
+import androidx.core.app.NotificationManagerCompat
 import com.serasa.final_resume.databse.AppDatabase
 import com.serasa.final_resume.databse.dao.PixabayDAO
 import com.serasa.final_resume.servie.NotificationHandler
@@ -35,4 +36,8 @@ class AppModule {
     @Provides
     fun provideNotificationHandler(@ApplicationContext context: Context): NotificationHandler =
         NotificationHandler(context)
+
+    @Provides
+    fun provideNotificationManagerCompat(@ApplicationContext context: Context): NotificationManagerCompat =
+        NotificationManagerCompat.from(context)
 }

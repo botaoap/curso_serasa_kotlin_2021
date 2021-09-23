@@ -1,5 +1,9 @@
 package com.serasa.final_resume.view
 
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
+import android.content.ComponentName
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.View.INVISIBLE
@@ -16,6 +20,7 @@ import com.serasa.final_resume.adapter.ImageAdapter
 import com.serasa.final_resume.adapter.SearchAdapter
 import com.serasa.final_resume.databinding.FeedFragmentBinding
 import com.serasa.final_resume.model.Image
+import com.serasa.final_resume.servie.AppJobService
 import com.serasa.final_resume.servie.NotificationHandler
 import com.serasa.final_resume.util.hideKeyboard
 import com.serasa.final_resume.view_model.FeedViewModel
@@ -68,6 +73,7 @@ class FeedFragment : Fragment(R.layout.feed_fragment) {
         loadObserver()
         executeComponents()
         (requireActivity() as? MainActivity)?.supportActionBar?.show()
+        startJob()
 
     }
 
@@ -131,4 +137,15 @@ class FeedFragment : Fragment(R.layout.feed_fragment) {
             notificationManager.notify(1, this)
         }
     }
+
+    fun startJob() {
+        val component = ComponentName(requireContext(), AppJobService::class.java)
+        val jobInfo = JobInfo.Builder(1, component)
+            .setPeriodic(5000)
+            .build()
+        val jobScheduler =
+            requireContext().getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+        jobScheduler.schedule(jobInfo)
+    }
+
 }

@@ -1,4 +1,10 @@
 package com.serasa.firebase_unit_testing.repository.interfaces
 
-class IGithubUsersResult {
+interface IGithubUsersResult {
+
+    fun successApi()
+    fun failureApi()
+    fun successFirebase()
+    fun failureFirebase()
+
 }

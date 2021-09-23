@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1005552514593",
+    "project_id": "fir-unit-testing-e59a3",
+    "storage_bucket": "fir-unit-testing-e59a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005552514593:android:3851dbf4ad1f58a5051560",
+        "android_client_info": {
+          "package_name": "com.serasa.firebase_unit_testing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005552514593-qpr27nd3i3ru5lvgfp7laq3u58mgohkg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvGjQmdolSE-5K_MZBg9H-y_GYkuxWOP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005552514593-qpr27nd3i3ru5lvgfp7laq3u58mgohkg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
